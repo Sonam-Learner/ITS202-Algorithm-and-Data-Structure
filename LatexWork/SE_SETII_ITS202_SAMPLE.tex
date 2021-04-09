@@ -1,0 +1,514 @@
+\documentclass[12pt ,a4paper]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\newcommand\textbox[1]{%
+	\parbox{.333\textwidth}{#1}%
+}
+
+% Customised items
+\usepackage[shortlabels]{enumitem}
+
+% Times New Roman
+\usepackage[T1]{fontenc}
+\usepackage{newtxmath,newtxtext}
+
+% Code
+\usepackage{courier} %% Sets font for listing as Courier.
+\usepackage{listings, xcolor}
+\lstset{
+	tabsize = 4, %% set tab space width
+	showstringspaces = false, %% prevent space marking in strings, string is defined as the text that is generally printed directly to the console
+	numbers = left, %% display line numbers on the left
+	commentstyle = \color{red}, %% set comment color
+	keywordstyle = \color{blue}, %% set keyword color
+	stringstyle = \color{red}, %% set string color
+	rulecolor = \color{black}, %% set frame color to avoid being affected by text color
+	basicstyle = \small \ttfamily , %% set listing font and size
+	breaklines = true, %% enable line breaking
+	numberstyle = \tiny,
+}
+
+
+% Page Setup
+\usepackage[a4paper,
+bindingoffset=0.2in,%
+left=0.5in,
+right=0.5in,
+top=1in,
+bottom=1in,%
+footskip=.25in]{geometry}
+
+\author{Yonten Jamtsho}
+\begin{document}
+	% Title
+	\begin{center}
+		\textbf{ROYAL UNIVERSITY OF BHUATAN} \\
+		\textbf{GYALPOZHING COLLEGE OF INFORMATION TECHNOLOGY} \\
+		\textbf{GYALPOZHING : BHUTAN}
+	\end{center}
+	
+	\vspace{0.2cm}
+	
+	\begin{center}
+		%\textbf{SEMESTER END EXAMINATION (AUTUMN 2020)}
+		\textbf{SEMESTER END EXAMINATION (AUTUMN 2020)}
+	\end{center}
+	
+	\vspace{0.1cm}
+	
+	\begin{tabbing}
+		\textbf{Class} \=  \hspace{2cm} :  \hspace{0.3cm} \textbf{Bachelor of Science in Information Technology (Year II, Semester I)}     \\ \\
+		
+		\textbf{Module Title} \hspace{0.65cm} : \hspace{0.3cm} \textbf{Algorithms and Data Structures}       \\ \\
+		
+		\textbf{Module Code} \hspace{0.55cm} :     \hspace{0.3cm} \textbf{ITS202}     \\ \\
+		
+		\textbf{Serial No.} \hspace{1.13cm} :       \hspace{0.3cm} \textbf{BSc(IT)/2020/III/F/ITS202/II}          \\ \\
+		
+		\textbf{Max. Marks} \hspace{0.75cm} :     \hspace{0.3cm} \textbf{50}             \\ \\
+		
+		\textbf{Max. Time} \hspace{1.04cm} :        \hspace{0.3cm} \textbf{3 Hours}             \\ \\
+	\end{tabbing}
+	
+	\textbf{General Instructions:}
+	\begin{enumerate}
+		\itemsep0em 
+		\item Question paper has written component.
+		\item In no circumstances may you remove Answer Books, used or unused, from the Examination Room.
+		\item If the answer book is torn or folded or without Exam Cell’s seal, report the matter to the Invigilator and get a new one.
+		\item Enter the required details such as Reg.  Number, Module and other information as prescribed.
+		\item Do not write your name on any part of the Answer Book.
+		\item Number your answer according to the number assigned in the Question Paper.
+		\item Do not skip any pages when writing answers.  Any rough sketches/calculations must be shown on the same page.
+		\item Do not fold or tear off any pages from the Answer Book. Any answer crossed by you will not be evaluated.
+		\item You may request for the supplementary Answer sheets only after the main answer Book is completely used.
+		\item A candidate who is found to have unauthorised materials in his /her possession, copying, talking or exchanging any material with others will be dealt with as per the Wheel of Academic Law.
+		\item No paper other than Admit Card will be allowed in the Examination Hall/Room unless otherwise specified in the Question Paper.
+	\end{enumerate}
+	\pagebreak
+	
+	% Part A title
+	\begin{center}
+		\noindent \textbf{PART - I} \textbf{ [10 Marks]}\\
+		\noindent \textit{Answer all the questions} 
+	\end{center}
+	
+	% Keep space between PAT A and MCQ
+	\vspace{0.5cm}
+	
+	% MQC Title
+	\noindent \textbf{Multiple Choice Questions} \hfill \textbf{[10 x 0.5 = 5]}
+	
+	% Begin your question with customized numbered list
+	\begin{enumerate}[start=1,label={\bfseries Q\arabic*)}]
+		% Reduce the space between items
+		\itemsep0.2em
+		
+		\item The Running time of Max\_Heapify is
+		\item[] 
+		\begin{oneparchoices}
+			\choice $\theta$(nlogn)  % \hspace is used to keep space between choice
+			\choice $\theta$(n) 
+			\choice O(n logn) 
+			\choice O(logn)   \checkmark 
+		\end{oneparchoices}
+		
+	  \item What is the speciality about the inorder traversal of a binary search tree?
+	  \item[] 
+	  \begin{oneparchoices}
+	  	\choice It traverses in a non increasing order\\ % \hspace is used to keep space between choice
+	  	\choice It traverses in an increasing order  \checkmark \\
+	  	\choice It traverses in a random fashion\\
+	  	\choice It traverses based on priority of the node
+	  \end{oneparchoices}
+	
+	 \item What is an AVL tree?
+	 \item[] 
+	 \begin{oneparchoices}
+	 	\choice a tree which is balanced and is a height balanced tree   \checkmark \\ % \hspace is used to keep space between choice
+	 	\choice a tree which is unbalanced and is a height balanced tree \\
+	 	\choice a tree with three children \\
+	 	\choice a tree with atmost 3 children
+	 \end{oneparchoices}
+	
+		\item Which of the following is not a technique to avoid a collision?
+	\item[] 
+	\begin{oneparchoices}
+		\choice  Make the hash function appear random\\% \hspace is used to keep space between choice
+		\choice Use the chaining method\\
+		\choice Use uniform hashing\\
+		\choice Increasing hash table size \checkmark
+	\end{oneparchoices}
+ 	 \item How many times must you tear a 1,024- page phonebook in half in order to whittle it down to a single page?
+ 	 	\item[] 
+ 	 \begin{oneparchoices}
+ 	 	\choice 8% \hspace is used to keep space between choice
+ 	 	\choice 10 \checkmark
+ 	 	\choice 32
+ 	 	\choice 512
+ 	 \end{oneparchoices}
+      \item Sorting Algorithm which is the extension of insertion sort is
+      \item[] 
+      \begin{oneparchoices}
+      	\choice Selection Sort% \hspace is used to keep space between choice
+      	\choice Shell Sort\checkmark
+      	\choice Insertion Sort
+      	\choice Bubble Sort
+      \end{oneparchoices}
+  
+     \item Graph Algorithm which doesn't work for Negative weights is
+     \item[] 
+     \begin{oneparchoices}
+     	\choice Bellan-Ford Algorithm\\% \hspace is used to keep space between choice
+     	\choice Dijkstra's Algorithm \checkmark\\
+     	\choice Kruskal Algorithm\\
+     	\choice Prims Algorithm
+     \end{oneparchoices}
+ 
+     \item Which of the following operation take worst case linear time in the array implementation of stack?
+     \item[] 
+     \begin{oneparchoices}
+     	\choice Push\\% \hspace is used to keep space between choice
+     	\choice Pop\\
+     	\choice isEmpty\\
+     	\choice None \checkmark\\
+     \end{oneparchoices}
+    
+     \item The number of vertices in a Spanning tree with 12 edges is 
+    \item[] 
+    \begin{oneparchoices}
+    	\choice 10\\% \hspace is used to keep space between choice
+    	\choice 11\\
+    	\choice 12\\
+    	\choice 13 \checkmark\\
+    \end{oneparchoices}
+    
+     \item One of the application of Stack data structure is
+    \item[] 
+    \begin{oneparchoices}
+    	\choice browser \checkmark\\% \hspace is used to keep space between choice
+    	\choice Apps\\
+    	\choice Studying\\
+    	\choice Staying in the line\\
+    \end{oneparchoices}
+    \end{enumerate}
+	
+	\noindent \textbf{Fill in the blanks} \hfill\textbf{ [5 x 0.5 = 2.5]}
+	
+	% Continue the items from 2
+	\begin{enumerate}[start=11,label={\bfseries Q\arabic*)}]
+		\itemsep-0.3em
+		\item A node can have any degree 0<= deg<= 2 and is called ....General Binary Tree........ \hfill\textbf{ [0.5]}
+		\item A ....negative cycle... is a directed cycle whose sum of edge weights is negative.  \hfill\textbf{ [0.5]}
+		\item The time complexity of DFS is .....O(V + E).......  \hfill\textbf{ [0.5]}
+		\item A .....connected component.... is a maximal set of connected vertices. \hfill\textbf{ [0.5]}
+		\item A node has ...Data... and  ...Link....... \hfill\textbf{ [0.5]}
+	\end{enumerate}
+	
+	\vspace{0.1mm}
+	  \noindent \textbf{True or False} \hfill\textbf{ [5 x 0.5 = 2.5]}
+	
+	% Continue the items from 2
+	\begin{enumerate}[start=16,label={\bfseries Q\arabic*)}]
+			\itemsep-0.3em
+		\item top(), Returns the top element of the stack, without removing it (or null if the stack is empty). : True \hfill\textbf{ [0.5]}
+		\item The time complexity of inserting a node in the head of the linked list is O(n). : False \hfill\textbf{ [0.5]}
+		\item A queue is a first-in, first-out data structure. True \hfill\textbf{ [0.5]}
+		\item Given Figure 1 tree is a AVL tree.: False \hfill\textbf{ [0.5]}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=0.4\linewidth]{"Screenshot 2020-12-27 at 1.12.12 PM"}
+		\end{figure}
+	    \item Adding a constant to every edge weight does not change the solution to the single-source shortest-paths problem. False \hfill\textbf{ [0.5]}
+	\end{enumerate}
+	
+	\vspace{0.1mm}
+	\pagebreak
+	% Part B title
+	\begin{center}
+		\textbf{PART - II} \textbf{[15 Marks]}\\
+		\noindent \textit{SHORT ANSWER QUESTION} \\
+		\noindent \textit{Answer all the questions} 
+	\end{center}
+
+	\begin{enumerate}[start=1,label={\bfseries Q\arabic*)}]
+			\item For each algorithm below, specify an upper (O) and lower ($\omega$) bound on its running time.  Assume that the linked lists and arrays in question are all of length n. Do not assume that a data structure is sorted or unsorted unless told. \hfill \textbf{ [5 * 0.5 = 2.5 ]}	\\
+			 \textcolor{blue}{For each row will be evaluated out of  \hfill\textbf{ [2* 0.25 = 0.5 ]}	}
+			\begin{table}[h]
+				\centering
+				\begin{tabular}{|l|l|l|l}
+					\cline{1-3}
+					\textbf{Algorithms} & \textbf{O} & \textbf{$\omega$}  &  \\ \cline{1-3}
+					Sorting an array with Merge Sort& n log n  &  n log n   &  \\ \cline{1-3} 
+					Sorting an array with Selection Sort& $n^2$  & $n^2$   &  \\ \cline{1-3}
+					Inserting into a sorted Linked List&  n &  1 &  \\ \cline{1-3}
+					Searching a sorted array with Binary Search&  log n  &  1 &  \\ \cline{1-3}
+					Searching a sorted Linked list with Linear Search&  n &  1  &  \\ \cline{1-3}
+				\end{tabular}
+			
+			\end{table}\\
+		 
+		\item What is one property of a good hash function?  \hfill \textbf{[1]}\\
+		\textcolor{blue}{Answer: } Uniformly distributing some (possibly non-uniform) domain over a range.
+		\item What do you mean by Spanning tree of a Graph? \hfill \textbf{[1]}\\
+		\textcolor{blue}{Answer: } A spanning tree of a grapg G is a subgraph T that is :
+			\begin{itemize}
+				\item Connected \hfill \textbf{[0.5]}
+				\item Acyclic \hfill \textbf{[0.25]}
+				\item Includes all the vertices \hfill \textbf{[0.25]}
+			\end{itemize}
+		\item Explain Edge relaxation with Example? \hfill \textbf{[2]}\\
+		\textcolor{blue}{Answer: }  Relax(u,v,w) \hfill \textbf{[1]}
+		\begin{itemize}
+			\item if d[v] >= d[u] + w(u,v) 
+			\item —> d[v] = d[u] + w(u,v)
+		\end{itemize}
+	    Example \hfill \textbf{[1]}
+		\begin{figure}  [h]
+			\centering
+			\includegraphics[width=0.5\linewidth]{"Screenshot 2020-12-25 at 3.11.25 PM"}
+			\caption{Example}
+			\label{fig:screenshot-2020-12-25-at-3}
+		\end{figure}
+	   \pagebreak
+		 \item Explain Hibbard Deletion of BST with the help of example. \hfill \textbf{[3]}\\
+		 \textcolor{blue}{Answer: } To delete a node with key k: search for node t containing key k.
+		 \begin{itemize}
+		 	\item  Case 0. [0 children] Delete t by setting parent link to null.
+		 	\begin{figure} [h]
+		 		\centering
+		 		\includegraphics[width=0.7\linewidth]{"Screenshot 2020-12-26 at 8.38.56 AM"}
+		 		\caption{case 0}
+		 		\label{fig:screenshot-2020-12-26-at-8}
+		 	\end{figure}
+		 	
+		 	\item Case 1. [1 child] Delete t by replacing parent link.
+		 	\begin{figure}[h]
+		 		\centering
+		 		\includegraphics[width=0.7\linewidth]{"Screenshot 2020-12-26 at 8.39.09 AM"}
+		 		\caption{case 1}
+		 		\label{fig:screenshot-2020-12-26-at-8}
+		 	\end{figure}
+		 	
+		 	\item Case 2. [2 children]
+		 		\begin{itemize}
+		 			\item Find successor x of t. <— x has no left child
+		 			\item Delete the minimum in t’s right subtree. <— but don’t
+		 			garbage collect x
+		 			\item Put x in t’s spot. <—still a BST
+		 		\end{itemize}
+	 		\begin{figure}[h]
+	 			\centering
+	 			\includegraphics[width=0.7\linewidth]{"Screenshot 2020-12-26 at 8.39.22 AM"}
+	 			\caption{case 2}
+	 			\label{fig:screenshot-2020-12-26-at-8}
+	 		\end{figure}
+	 		
+		 \end{itemize}
+		 \pagebreak
+	    \item Explain Strictly Binary Tree with Example \hfill \textbf{[1]}\\
+	    \textcolor{blue}{Answer: } No node with degree one and each node should be with degree Zero or two.  \hfill \textbf{[0.5]}
+	    \begin{figure}[h]
+	    	\centering
+	    	\includegraphics[width=0.4\linewidth]{"Screenshot 2020-12-26 at 9.15.19 AM"}
+	    	\caption{Strictly Binary Tree  \hfill \textbf{[0.5]}}
+	    	\label{fig:screenshot-2020-12-26-at-9}
+	    \end{figure}
+	    
+	    \item Consider the remarks below, each of which sounds like an advantage but is not without an underlying disadvantage too. Complete each of the remarks, making clear the price paid (i.e., tradeoff) for the advantage. \hfill \textbf{[1.5]}
+	    \begin{enumerate}[start=1,label={\bfseries \roman*)}]
+	    	\item Merge sort tends to be faster than bubble sort. Having said that ...\\
+	    	\textcolor{blue}{Answer: } 	Having said that, merge sort requires twice as much space (to store values while merging).  \hfill \textbf{[0.5]}
+	    	\item A linked list can grow and shrink to fit as many elements as needed. Having said that ..\\
+	    	\textcolor{blue}{Answer: }  Having said that, a linked list does not allow for binary search, even if sorted, since it doesn’t support direct access to nodes by index.  \hfill \textbf{[0.5]}
+	    	\item Binary search tends to be faster than linear search. Having said that ..\\
+	    	\textcolor{blue}{Answer: } Having said that, binary search requires that its input be sorted, which might not be the case (and sorting it would require additional time).  \hfill \textbf{[0.5]}
+	    \end{enumerate}
+	   \item List down four steps involved in key-index counting. \hfill \textbf{[2]}\\
+	   \textcolor{blue}{Answer: } 	There are mainly four steps in processing key-indexed counting sort.
+	   \begin{itemize}
+	   	\item Compute frequency counts. \hfill \textbf{[0.5]}
+	   	\item Transform counts to indices. \hfill \textbf{[0.5]}
+	   	\item Distribute the data. \hfill \textbf{[0.5]}
+	   	\item Copy back. \hfill \textbf{[0.5]}
+	   \end{itemize}
+       \item Mention the steps to insert data at the starting of a singly linked list?  \hfill \textbf{[1]}\\
+       \textcolor{blue}{Answer: } Steps to insert data at the starting of a singly linked list include:
+       \begin{itemize}
+       	 \item Create a new node
+       	 \item Insert new node by allocating the head pointer to the new node next pointer
+       	 \item Updating the head pointer to the point the new node
+       \end{itemize}
+	\end{enumerate}
+	\pagebreak
+	% Part C title
+	\begin{center}
+		\textbf{PART - III} \textbf{[25 Marks]}\\
+		\noindent \textit{LONG ANSWER QUESTIONS} \\
+		\noindent \textit{Answer all the questions}  
+	\end{center}
+	
+	\begin{enumerate}[start=1,label={\bfseries Q\arabic*)}]
+	\item Apply Insertion sort on the given String \hfill\textbf{[5]} \\
+	\item [] E A S Y  Q U E S T I O N\\
+	\textcolor{blue}{Answer: }
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.5\linewidth]{"Screenshot 2020-12-26 at 10.04.38 PM"}
+		\caption{Insertion sort}
+		\label{fig:screenshot-2020-12-26-at-10}
+	\end{figure}
+	
+	\item Apply Dijkstras Algorithm for the following Graph \hfill\textbf{[5]} 
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.3\linewidth]{"Screenshot 2020-12-27 at 10.00.41 PM"}
+		\caption{Dijkstras Algorithm Graph}
+		\label{fig:screenshot-2020-12-27-at-10}
+	\end{figure}\\
+    	\textcolor{blue}{Answer: }
+    	\begin{figure}[h!]
+    		\centering
+    		\includegraphics[width=0.3\linewidth]{"Screenshot 2020-12-27 at 10.03.49 PM"}
+    		\caption{}
+    		\label{fig:screenshot-2020-12-27-at-10}
+    	\end{figure}
+    	\begin{figure}[h!]
+    		\centering
+    		\includegraphics[width=0.3\linewidth]{"Screenshot 2020-12-27 at 10.03.56 PM"}
+    		\caption{}
+    		\label{fig:screenshot-2020-12-27-at-10}
+    	\end{figure}
+    	\begin{figure}[h!]
+    		\centering
+    		\includegraphics[width=0.3\linewidth]{"Screenshot 2020-12-27 at 10.04.02 PM"}
+    		\caption{}
+    		\label{fig:screenshot-2020-12-27-at-10}
+    	\end{figure}
+
+    	\begin{figure}[h!]
+    		\centering
+    		\includegraphics[width=0.3\linewidth]{"Screenshot 2020-12-27 at 10.04.09 PM"}
+    		\caption{}
+    		\label{fig:screenshot-2020-12-27-at-10}
+    	\end{figure}
+    	\begin{figure}[h!]
+    		\centering
+    		\includegraphics[width=0.3\linewidth]{"Screenshot 2020-12-27 at 10.04.15 PM"}
+    		\caption{}
+    		\label{fig:screenshot-2020-12-27-at-10}
+    	\end{figure}
+       \pagebreak
+    	\begin{figure}[h!]
+    		\centering
+    		\includegraphics[width=0.3\linewidth]{"Screenshot 2020-12-27 at 10.04.21 PM"}
+    		\caption{}
+    		\label{fig:screenshot-2020-12-27-at-10}
+    	\end{figure}
+    	\begin{figure}[h!]
+    		\centering
+    		\includegraphics[width=0.3\linewidth]{"Screenshot 2020-12-27 at 10.04.28 PM"}
+    		\caption{}
+    		\label{fig:screenshot-2020-12-27-at-10}
+    	\end{figure}
+    	\begin{figure}[h!]
+    		\centering
+    		\includegraphics[width=0.3\linewidth]{"Screenshot 2020-12-27 at 10.04.34 PM"}
+    		\caption{}
+    		\label{fig:screenshot-2020-12-27-at-10}
+    	\end{figure}
+    	\begin{figure}[h!]
+    		\centering
+    		\includegraphics[width=0.3\linewidth]{"Screenshot 2020-12-27 at 10.04.40 PM"}
+    		\caption{}
+    		\label{fig:screenshot-2020-12-27-at-10}
+    	\end{figure}
+       \clearpage
+    	\begin{figure}[h!]
+    		\centering
+    		\includegraphics[width=0.3\linewidth]{"Screenshot 2020-12-27 at 10.04.46 PM"}
+    		\caption{}
+    		\label{fig:screenshot-2020-12-27-at-10}
+    	\end{figure}
+    
+    	\begin{figure}[h!]
+    		\centering
+    		\includegraphics[width=0.3\linewidth]{"Screenshot 2020-12-27 at 10.04.53 PM"}
+    		\caption{}
+    		\label{fig:screenshot-2020-12-27-at-10}
+    	\end{figure}
+    
+        	\vspace{0.9mm}
+       \newpage
+      \pagebreak
+      \pagebreak
+    		\item Paro Airport runaway reservation system have only one runway available. Following details are provided for reservation. 
+    	\begin{itemize}
+    		\item Reserve request: specifies landing time t.
+    		\item Add t to the set R of landing times if no other landings are
+    		scheduled within k minutes.
+    		\item k can vary: let’s assume it is statically set (e.g. 3 min). 
+    		\item After landing, remove request from R.
+    		\item What operations do we need in the data structure?
+    		\begin{itemize}
+    			\item Adding requests. If they satisfy constraint!
+    			\item Removing requests.
+    			\item Notion of time, checks every m seconds to update the structure.
+    			\item Nutshell: we need a data structure that allows for insertion and removal of elements.
+    			\item Additional requirement: operations in O(lg n)
+    		\end{itemize}
+    	\end{itemize}
+    	\item [] List and Explain with diagram all the data structure available comparing interms of their time complexity and finally suggest the best data structure to opt for given you are the developer of this system.  \hfill\textbf{[5]}\\
+    	\textcolor{blue}{Answer: } 
+    	\begin{itemize}
+    		\item Unsorted list/array: good? most operations are in O(n). Insertion can be in O(1) With diagram \hfill\textbf{[1]}\\
+    		\item Sorted list: Appending and sorting takes O(nlgn) time. Insertion takes O(n) time.  A k minute check can be done in O(1) once the insertion point is found. With diagram \hfill\textbf{[1]}\\
+    		\item Sorted array: Binary search to find place to insert in O(lgn) time. Looks good? Insertion is still in O(n).We almost had it in the sorted list/array. With diagram \hfill\textbf{[1]}\\
+    		\item Key point: We need fast insertion into a sorted list.
+    		\item Binary Search Tree takes O(log n) time complexity.  With diagram \hfill\textbf{[2]}\\    		
+    	\end{itemize}
+       \pagebreak
+       \item Perform Binary Search on this array to find the element 14. \hfill\textbf{[5]}
+       \item [] [1, 1,2,4,5,6,10,14,81,96,200]\\
+       	\textcolor{blue}{Answer: } \\
+       	\begin{figure}[h]
+       		\centering
+       		\includegraphics[width=0.7\linewidth]{"Screenshot 2020-12-27 at 10.32.15 PM"}
+       		\caption{}
+       		\label{fig:screenshot-2020-12-27-at-10}
+       	\end{figure}
+       	\begin{figure}[h]
+       		\centering
+       		\includegraphics[width=0.7\linewidth]{"Screenshot 2020-12-27 at 10.32.25 PM"}
+       		\caption{}
+       		\label{fig:screenshot-2020-12-27-at-10}
+       	\end{figure}
+       	\begin{figure}[h]
+       		\centering
+       		\includegraphics[width=0.7\linewidth]{"Screenshot 2020-12-27 at 10.32.34 PM"}
+       		\caption{}
+       		\label{fig:screenshot-2020-12-27-at-10}
+       	\end{figure}
+       	\begin{figure}[h]
+       		\centering
+       		\includegraphics[width=0.7\linewidth]{"Screenshot 2020-12-27 at 10.32.45 PM"}
+       		\caption{}
+       		\label{fig:screenshot-2020-12-27-at-10}
+       	\end{figure}
+          \pagebreak
+        \item List down the API of  EdgeWeightedGraph with its Explanation.\hfill\textbf{[5]}\\
+        \textcolor{blue}{Answer: } \\
+        \begin{figure}[h]
+        	\centering
+        	\includegraphics[width=1\linewidth]{"Screenshot 2020-12-27 at 10.38.20 PM"}
+        	\caption{API}
+        	\label{fig:screenshot-2020-12-27-at-10}
+        \end{figure}
+
+	\end{enumerate}
+	
+\end{document}

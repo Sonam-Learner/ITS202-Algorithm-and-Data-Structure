@@ -1,0 +1,258 @@
+
+\documentclass[11pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usetheme{Copenhagen}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{outlines}
+\setbeamertemplate{caption}[numbered]
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+
+
+% Code
+\usepackage{courier} %% Sets font for listing as Courier.
+\usepackage{listings, xcolor}
+\lstset{
+	tabsize = 4, %% set tab space width
+	showstringspaces = false, %% prevent space marking in strings, string is defined as the text that is generally printed directly to the console
+	numbers = left, %% display line numbers on the left
+	commentstyle = \color{red}, %% set comment color
+	keywordstyle = \color{blue}, %% set keyword color
+	stringstyle = \color{red}, %% set string color
+	rulecolor = \color{black}, %% set frame color to avoid being affected by text color
+	basicstyle = \small \ttfamily , %% set listing font and size
+	breaklines = true, %% enable line breaking
+	numberstyle = \tiny,
+}
+
+%Page Number
+\addtobeamertemplate{navigation symbols}{}{%
+	\usebeamerfont{footline}%
+	\usebeamercolor[fg]{footline}%
+	\hspace{1em}%
+	\insertframenumber/\inserttotalframenumber
+}
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+	\insertshorttitle\hfill%
+	\insertframenumber\,/\,\inserttotalframenumber}
+
+\begin{document}
+	\author{Ms. Sonam Wangmo}
+	\title{ITS202: Algorithms and Data Structures}
+	\subtitle{Advanced Data Structures}
+	\institute{
+		\textcolor{blue}{Gyalpozhing College of Information Technology \\ Royal University of Bhutan} \\
+		\vspace{0.5cm}
+	}
+	%\date{}
+	\setbeamercovered{transparent}
+	%\setbeamertemplate{navigation symbols}{}
+	\begin{frame}[plain]
+		\maketitle 
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Balanced Search Trees: AVL}
+	    \begin{block}{Height-Balance Property or Balance Factor}
+	    	For every internal position p of T , the heights of the children of p differ by at most 1.\\
+	    	\alert{Balance}\\
+	    	Balance factor= height(left subtree) - height(right subtree).
+	    \end{block}
+      \begin{block}{AVL}
+      	Any binary search tree T that satisfies the height-balance property is said to be an \textcolor{blue}{AVL} tree, named after the initials of its inventors: \textbf{Adel’son-Vel’skii and Landis}.\\
+      	\alert{|B(n)| <= 1}
+      \end{block}
+	\end{frame}	
+
+    \begin{frame}
+    	\frametitle{Balanced Search Trees: AVL}
+        \begin{figure}
+        	\centering
+        	\includegraphics[width=0.8\linewidth]{"Screenshot 2020-11-19 at 3.10.01 PM"}
+        	\caption{An example of an AVL tree}
+        	\label{fig:screenshot-2020-11-19-at-3}
+        \end{figure}
+    \end{frame}	
+ 
+  \begin{frame}
+    \frametitle{Balanced Search Trees: AVL}
+	       \begin{block}{Height of a node}
+	       	Height of longest path from it down to a leaf.\\
+	       	H($\emptyset$) = -1\\
+	       	H(Single Node) = 0\\
+	       	Height of a node = Maximum[height(leftchild), height(right child)]+1\\
+	       	\end{block}
+       	  \alert{Worsecase is when the right subtree has height 1 more than left subtree for every node.}
+   \end{frame}	
+
+      \begin{frame}
+    	\frametitle{Balanced Search Trees: AVL}
+    	\begin{figure}
+    		\centering
+    		\includegraphics[width=0.8\linewidth]{"Screenshot 2020-11-21 at 12.21.29 AM"}
+    		\caption{Balanced BST:AVL}
+    		\label{fig:screenshot-2020-11-21-at-12}
+    	\end{figure} 
+      \alert{Note:}
+       \textcolor{blue}{Positive Balance: Left-Heavy}\\	
+        \textcolor{blue}{Negative Balance: Right-Heavy}\\	
+         \textcolor{blue}{B(n)=H($T_{L}$)  - H($T_{R}$) }
+    \end{frame}	
+    
+    \begin{frame}
+    	\frametitle{Insertion in AVL Tree}
+    	\begin{enumerate}
+    		\item Simple BST indert
+    		\item Fix the AVL property from changed node up.
+    		\item 
+    	\end{enumerate}
+        \alert{	Note: Inserting a new node can cause the balance factor of some node to become 2 or -2. In that case, we fix the balance factors by use of rotations.}
+    
+    \end{frame}	
+
+    \begin{frame}
+    	\frametitle{AVL Tree: Rotations}
+    	\textcolor{blue}{Rotation means maintaining the BST invariant at the same time as maintaing the balance threshold.}\\
+    	Rotations fix imbalance.\\
+    	\begin{block}{Left and Right Rotations}
+    		\alert{Left-Heavy}
+    		\begin{enumerate}
+    			\item Right rotation
+    			\item Left-Right rotation
+    		\end{enumerate}
+    		\alert{Right-Heavy}
+    		\begin{enumerate}
+    			\item Left rotation
+    			\item Right-Left rotation
+    		\end{enumerate}
+    	\end{block}
+    \end{frame}	
+
+     \begin{frame}
+    	\frametitle{Rotations: Right}
+    	\textcolor{blue}{When we do rotations, focus on 2 nodes, x and y}\\
+    	\alert{Insert 3,2,1}
+        \begin{figure}
+        	\centering
+        	\includegraphics[width=0.5\linewidth]{"Screenshot 2020-11-24 at 10.21.20 AM"}
+        	\caption{BST}
+        	\label{fig:screenshot-2020-11-24-at-10}
+        \end{figure}
+        
+    \end{frame}	
+
+     \begin{frame}
+     	\frametitle{Rotations: Right}
+     	\begin{figure}
+     		\centering
+     		\includegraphics[width=0.8\linewidth]{"Screenshot 2020-11-24 at 10.26.23 AM"}
+     		\caption{AVL Tree}
+     		\label{fig:screenshot-2020-11-24-at-10}
+     	\end{figure}	
+     \end{frame}
+ 
+       \begin{frame}
+    	\frametitle{Rotations: Left-Right}
+    	\textcolor{blue}{When we do rotations, focus on 2 nodes, x and y}\\
+    	\alert{Insert 3,1,2}
+    	\begin{figure}
+    		\centering
+    		\includegraphics[width=0.9\linewidth]{"Screenshot 2020-11-24 at 11.12.17 AM"}
+    		\caption{Right rotation}
+    		\label{fig:screenshot-2020-11-24-at-11}
+    	\end{figure}   	
+    \end{frame}	
+
+        \begin{frame}
+ 	\frametitle{Rotations: Left-Right}
+    \begin{figure}
+    	\centering
+    	\includegraphics[width=1\linewidth]{"Screenshot 2020-11-24 at 11.20.53 AM"}
+    	\caption{AVL Tree: Left-right rotation}
+    	\label{fig:screenshot-2020-11-24-at-11}
+    \end{figure}    
+ \end{frame}
+
+ \begin{frame}
+	\frametitle{Rotations: Left}
+	\textcolor{blue}{When we do rotations, focus on 2 nodes, x and y}\\
+	\alert{Insert 1,2,3}
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{"Screenshot 2020-11-24 at 11.32.22 AM"}
+		\caption{AVL: Left rotation}
+		\label{fig:screenshot-2020-11-24-at-11}
+	\end{figure}	
+\end{frame}	
+
+ \begin{frame}
+	\frametitle{Rotations: Right-Left}
+   \textcolor{blue}{When we do rotations, focus on 2 nodes, x and y}\\
+   \alert{Insert 1,3,2}
+  	\begin{figure}
+  		\centering
+  		\includegraphics[width=0.9\linewidth]{"Screenshot 2020-11-24 at 11.40.09 AM"}
+  		\caption{Left rotation:AVL}
+  		\label{fig:screenshot-2020-11-24-at-11}
+  	\end{figure} 	
+\end{frame}	
+
+ \begin{frame}
+	\frametitle{Rotations: Right-Left}
+    \begin{figure}
+    	\centering
+    	\includegraphics[width=1\linewidth]{"Screenshot 2020-11-24 at 11.47.36 AM"}
+    	\caption{AVL Tree: Right-left Rotation}
+    	\label{fig:screenshot-2020-11-24-at-11}
+    \end{figure}   	
+\end{frame}	
+
+
+\begin{frame}
+	\frametitle{Balanced Search Trees:  2-3 search trees}
+	\textcolor{blue}{ Allow 1 or 2 keys per node.}\\
+	\begin{itemize}
+		\item 2-node: one key, two children. 
+		\item 3-node: two keys, three children.
+	\end{itemize}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8\linewidth]{"Screenshot 2020-11-24 at 5.50.40 PM"}
+		\caption{2-3 search representation}
+		\label{fig:screenshot-2020-11-24-at-5}
+	\end{figure}
+\end{frame}		
+
+\begin{frame}
+	\frametitle{Balanced Search Trees:  red-black BSTs }
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\linewidth]{"Screenshot 2020-11-24 at 6.20.09 PM"}
+		\caption{Red-Black Tree}
+		\label{fig:screenshot-2020-11-24-at-6}
+	\end{figure}
+	
+\end{frame}	
+\begin{frame}
+	\frametitle{Balanced Search Trees:  B-trees(Bayer-McCreight, 1972)}
+	\begin{figure}
+		\centering
+		\includegraphics[width=1.05\linewidth]{"Screenshot 2020-11-24 at 6.22.16 PM"}
+		\caption{B tree}
+		\label{fig:screenshot-2020-11-24-at-6}
+	\end{figure}
+\end{frame}	
+
+\begin{frame}
+	\frametitle{Balanced Search Trees:  Performance}
+	\alert{Bottom line. Guaranteed logarithmic performance for search and insert. O(Log n)}
+\end{frame}		
+\end{document}

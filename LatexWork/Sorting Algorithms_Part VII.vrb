@@ -1,0 +1,7 @@
+\frametitle{Running Time of Key Indexed Counting }
+	\begin{itemize}
+		\item key-indexed counting does no compares (it accesses data only through key()). When R is within a constant factor of N, we have a linear-time sort.
+		\item O(N+ R)
+		R can be characters of alphabets, Hence we ignore R.
+		\item O(N)
+	\end{itemize}

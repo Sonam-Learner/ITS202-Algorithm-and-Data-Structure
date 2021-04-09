@@ -1,0 +1,319 @@
+\documentclass[11pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usetheme{Copenhagen}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{outlines}
+\setbeamertemplate{caption}[numbered]
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+
+% Code
+\usepackage{courier} %% Sets font for listing as Courier.
+\usepackage{listings, xcolor}
+\lstset{
+	tabsize = 4, %% set tab space width
+	showstringspaces = false, %% prevent space marking in strings, string is defined as the text that is generally printed directly to the console
+	numbers = left, %% display line numbers on the left
+	commentstyle = \color{red}, %% set comment color
+	keywordstyle = \color{blue}, %% set keyword color
+	stringstyle = \color{red}, %% set string color
+	rulecolor = \color{black}, %% set frame color to avoid being affected by text color
+	basicstyle = \small \ttfamily , %% set listing font and size
+	breaklines = true, %% enable line breaking
+	numberstyle = \tiny,
+}
+
+%Page Number
+\addtobeamertemplate{navigation symbols}{}{%
+	\usebeamerfont{footline}%
+	\usebeamercolor[fg]{footline}%
+	\hspace{1em}%
+	\insertframenumber/\inserttotalframenumber
+}
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+	\insertshorttitle\hfill%
+	\insertframenumber\,/\,\inserttotalframenumber}
+\begin{document}
+	\author{Ms. Sonam Wangmo}
+	\title{ITS202: Algorithms and Data Structure}
+	\subtitle{Graphs}
+	\institute{
+		\textcolor{blue}{Gyalpozhing College of Information Technology \\ Royal University of Bhutan} \\
+		\vspace{0.5cm}
+	}
+	%\date{}
+	\setbeamercovered{transparent}
+	%\setbeamertemplate{navigation symbols}{}
+	\begin{frame}[plain]
+		\maketitle
+	\end{frame}
+
+  \begin{frame}
+ 	\frametitle	{Graphs} 
+ 	\begin{block}{Graph}
+ 		A graph is a set of vertices and a collection of edges that each connect a pair of vertices.
+ 	\end{block} 
+    
+ \end{frame}
+
+  \begin{frame}
+	\frametitle	{Graphs} 
+	\alert{Example of Graph: Facebook}
+	\begin{figure}
+		\centering
+		\includegraphics[width=1.05\linewidth]{"Screenshot 2020-11-30 at 8.56.36 PM"}
+		\label{fig:screenshot-2020-11-30-at-8}
+	\end{figure}	
+\end{frame}
+
+  \begin{frame}
+	\frametitle	{Graph Applications} 
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{"Screenshot 2020-11-30 at 9.00.32 PM"}
+		\label{fig:screenshot-2020-11-30-at-9}
+	\end{figure}		
+\end{frame}
+
+  \begin{frame}
+	\frametitle	{Graph Terminology} 
+	\textcolor{blue}{Path: } Sequence of vertices connected by edges. \\
+	\textcolor{blue}{Cycle: } Path whose first and last vertices are the same.\\
+	Two vertices are \alert{connected} if there is a path between them.	
+		
+\end{frame}
+
+  \begin{frame}
+	\frametitle	{Graph Terminology} 
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\linewidth]{"Screenshot 2020-11-30 at 9.04.08 PM"}
+		\caption{}
+		\label{fig:screenshot-2020-11-30-at-9}
+	\end{figure}	
+\end{frame}
+
+  \begin{frame}
+	\frametitle	{Some graph-processing problems} 
+    \begin{figure}
+    	\centering
+    	\includegraphics[width=0.95\linewidth]{"Screenshot 2020-11-30 at 9.07.32 PM"}
+    	\label{fig:screenshot-2020-11-30-at-9}
+    \end{figure}  
+\end{frame}
+
+  \begin{frame}
+	\frametitle	{Undirected Graph: Graph API} 
+    \begin{figure}
+    	\centering
+    	\includegraphics[width=1.05\linewidth]{"Screenshot 2020-11-30 at 9.47.06 PM"}
+    	\label{fig:screenshot-2020-11-30-at-9}
+    \end{figure}
+\end{frame}
+
+ \begin{frame}
+	\frametitle	{Undirected Graph: Graph API} 
+    \begin{figure}
+    	\centering
+    	\includegraphics[width=1\linewidth]{"Screenshot 2020-11-30 at 9.47.22 PM"}
+    	\label{fig:screenshot-2020-11-30-at-9}
+    \end{figure}   
+\end{frame}
+
+\begin{frame}
+	\frametitle	{Graph API: Sample Client} 
+    \begin{figure}
+    	\centering
+    	\includegraphics[width=1.05\linewidth]{"Screenshot 2020-11-30 at 9.55.24 PM"}
+    	\label{fig:screenshot-2020-11-30-at-9}
+    \end{figure}   
+\end{frame}
+
+\begin{frame}
+	\frametitle	{Graph API: Sample Client} 
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{"Screenshot 2020-11-30 at 9.59.34 PM"}
+		\label{fig:screenshot-2020-11-30-at-9}
+	\end{figure}	
+\end{frame}
+
+\begin{frame}
+	\frametitle	{Graph Representation} 
+	\begin{enumerate}
+		\item Adjacency-matrix graph representation
+		\item Adjacency-list graph representation
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\frametitle	{Graph Representation: Adjacency-matrix graph representation} 
+    Maintain a two-dimensional V-by-V boolean array;\\
+    for each edge v–w in graph: adj[v][w] = adj[w][v] = true.
+    \begin{figure}
+    	\centering
+    	\includegraphics[width=0.9\linewidth]{"Screenshot 2020-11-30 at 10.25.49 PM"}
+    	\label{fig:screenshot-2020-11-30-at-10}
+    \end{figure}
+    
+\end{frame}
+\begin{frame}
+	\frametitle	{Graph Representation: Adjacency-list graph representation} 
+	Maintain vertex-indexed array of lists.
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.4\linewidth]{"Screenshot 2020-11-30 at 10.29.20 PM"}
+		\label{fig:screenshot-2020-11-30-at-10}
+	\end{figure}	
+\end{frame}
+
+\begin{frame}
+	\frametitle	{Graph Traversal: Depth-first Search} 
+     \alert{Maze Exploration}
+     \begin{figure}
+     	\centering
+     	\includegraphics[width=0.8\linewidth]{"Screenshot 2020-12-01 at 6.10.23 AM"}
+     	\label{fig:screenshot-2020-12-01-at-6}
+     \end{figure}    
+\end{frame}
+
+\begin{frame}
+	\frametitle	{Graph Traversal: Depth-first Search} 
+    \begin{figure}
+    	\centering
+    	\includegraphics[width=0.7\linewidth]{"Screenshot 2020-12-01 at 6.12.06 AM"}
+    	\label{fig:screenshot-2020-12-01-at-6}
+    \end{figure}    
+\end{frame}
+
+\begin{frame}
+	\frametitle	{Graph Traversal: Depth-first Search} 
+	\alert{Goal}. Systematically traverse a graph.  
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8\linewidth]{"Screenshot 2020-12-01 at 6.16.27 AM"}
+		\label{fig:screenshot-2020-12-01-at-6}
+	\end{figure}
+	\alert{Typical applications}
+	\begin{itemize}
+		\item Find all vertices connected to a given source vertex. 
+		\item Find a path between two vertices.
+	\end{itemize}	
+\end{frame}
+
+\begin{frame}
+	\frametitle	{Depth-first Search Demo} 
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{"Screenshot 2020-12-01 at 6.20.04 AM"}
+		\label{fig:screenshot-2020-12-01-at-6}
+	\end{figure}	
+\end{frame}
+
+\begin{frame}
+	\frametitle	{Depth-first Search Demo} 
+    \begin{figure}
+    	\centering
+    	\includegraphics[width=1\linewidth]{"Screenshot 2020-12-01 at 6.21.31 AM"}
+    	\label{fig:screenshot-2020-12-01-at-6}
+    \end{figure}    	
+\end{frame}
+
+\begin{frame}
+	\frametitle	{Depth-first Search: Data Structure} 
+	\alert{Data structures.}
+     \begin{itemize}
+     	\item Boolean array marked[] to mark visited vertices.
+     	\item Integer array edgeTo[] to keep track of paths. (edgeTo[w] == v) means that edge v-w taken to visit w for first time .	
+     \end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle	{Depth-first search application: preparing for a date} 
+    \begin{figure}
+    	\centering
+    	\includegraphics[width=0.9\linewidth]{"Screenshot 2020-12-01 at 6.26.40 AM"}
+    	\label{fig:screenshot-2020-12-01-at-6}
+    \end{figure}  
+\end{frame}
+
+\begin{frame}
+	\frametitle	{Depth-first search application: preparing for a date} 
+    \alert{Maze Application that we discussed}
+\end{frame}
+
+\begin{frame}
+	\frametitle	{Graph Traversal: Breadth-first Search} 
+    \begin{figure}
+    	\centering
+    	\includegraphics[width=0.9\linewidth]{"Screenshot 2020-12-01 at 11.08.51 AM"}
+    	\label{fig:screenshot-2020-12-01-at-11}
+    \end{figure}   
+\end{frame}
+
+\begin{frame}
+	\frametitle	{Graph Traversal: Breadth-first Search} 
+    \begin{figure}
+    	\centering
+    	\includegraphics[width=0.95\linewidth]{"Screenshot 2020-12-01 at 11.11.15 AM"}
+    	\label{fig:screenshot-2020-12-01-at-11}
+    \end{figure}   
+\end{frame}
+
+\begin{frame}
+	\frametitle	{Graph Traversal: Breadth-first Search} 
+    \alert{Algorithm}
+    \begin{figure}
+    	\centering
+    	\includegraphics[width=0.9\linewidth]{"Screenshot 2020-12-01 at 11.13.02 AM"}
+    	\label{fig:screenshot-2020-12-01-at-11}
+    \end{figure}    
+\end{frame}
+
+\begin{frame}
+	\frametitle	{Graph Traversal: Breadth-first Search} 
+    \begin{figure}
+    	\centering
+    	\includegraphics[width=1\linewidth]{"Screenshot 2020-12-01 at 11.14.39 AM"}
+    	\label{fig:screenshot-2020-12-01-at-11}
+    \end{figure}      
+\end{frame}
+
+\begin{frame}
+	\frametitle	{Breadth-first search application: routing} 
+	  \begin{figure}
+	  	\centering
+	  	\includegraphics[width=0.9\linewidth]{"Screenshot 2020-12-01 at 11.22.42 AM"}
+	  	\label{fig:screenshot-2020-12-01-at-11}
+	  \end{figure}	  
+\end{frame}
+
+\begin{frame}
+	\frametitle	{Connected Componets} 
+    \alert{Def.} Vertices v and w are \alert{connected} if there is a path between them.  \\
+    \alert{Def.} A \alert{connected component} is a maximal set of connected vertices.
+    \begin{figure}
+    	\centering
+    	\includegraphics[width=0.7\linewidth]{"Screenshot 2020-12-01 at 12.15.00 PM"}
+    	\label{fig:screenshot-2020-12-01-at-12}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle	{Graph Traversal Summary} 
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{"Screenshot 2020-12-01 at 12.20.47 PM"}
+		\label{fig:screenshot-2020-12-01-at-12}
+	\end{figure}	
+\end{frame}
+
+\end{document}

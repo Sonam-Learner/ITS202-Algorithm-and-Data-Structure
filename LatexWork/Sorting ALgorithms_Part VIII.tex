@@ -1,0 +1,166 @@
+\documentclass[11pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usetheme{Copenhagen}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{outlines}
+\setbeamertemplate{caption}[numbered]
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+
+% Code
+\usepackage{courier} %% Sets font for listing as Courier.
+\usepackage{listings, xcolor}
+\lstset{
+	tabsize = 4, %% set tab space width
+	showstringspaces = false, %% prevent space marking in strings, string is defined as the text that is generally printed directly to the console
+	numbers = left, %% display line numbers on the left
+	commentstyle = \color{red}, %% set comment color
+	keywordstyle = \color{blue}, %% set keyword color
+	stringstyle = \color{red}, %% set string color
+	rulecolor = \color{black}, %% set frame color to avoid being affected by text color
+	basicstyle = \small \ttfamily , %% set listing font and size
+	breaklines = true, %% enable line breaking
+	numberstyle = \tiny,
+}
+
+
+\begin{document}
+	\author{Ms. Sonam Wangmo}
+	\title{ITS202: Algorithms and Data Structures}
+	\subtitle{String Sorts}
+	\institute{
+		\textcolor{blue}{Gyalpozhing College of Information Technology \\ Royal University of Bhutan} \\
+		\vspace{0.5cm}
+	}
+
+	%\date{}
+	\setbeamercovered{transparent}
+	%\setbeamertemplate{navigation symbols}{}
+	\begin{frame}[plain]
+		\maketitle
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Radix Sort}
+			We consider two fundamentally different approaches to string sorting.
+			\begin{enumerate}
+				\item LSD referred to as least-significant-digit (LSD) string sorts.
+				\item MSD referred to as most-significant-digit (MSD) string sorts.
+				\end{enumerate}		 
+	\end{frame}
+
+\begin{frame}
+	\frametitle{LSD radix sort}
+	 \begin{block}{Concepts}
+	 \begin{itemize}
+	 	\item Consider characters from right to left.
+	 	\item Sort using dth character as the key (Using key-indexed counting)
+	 	\item LSD sorts fixed length strings in ascending order.
+	 	\item Sorting such string can be done using key-indexed counting. 
+	 	\item If the strings are each of length W,
+	 	we sort the strings W times with key-indexed counting, using
+	 	each of the positions as the key, proceeding from right to left.
+	 \end{itemize}
+	 \end{block}
+\end{frame}
+
+%Radix
+\begin{frame}[fragile]
+    \frametitle{LSD radix sort}
+  
+	\begin{lstlisting}[language=Java]		
+	public class LSD
+		{
+			public static void sort(String[] a, int W)
+			{
+				//Sort a[] on leading W characters.
+				int N = a.length; 
+				int R = 256; 
+				String[] aux = new String[N];
+				for (int d = W-1; d >= 0; d--)
+				{ 
+				// Sort by key-indexed counting on dth char.
+					int[] count = new int[R+1];   
+			    // Compute frequency counts.
+					for (int i = 0; i < N; i++)
+					
+				
+	\end{lstlisting}
+\end{frame}
+
+%ContinueRadix
+\begin{frame}[fragile]
+	\frametitle{LSD radix sort}
+	
+	\begin{lstlisting}[language=Java]		
+			    	count[a[i].charAt(d) + 1]++;
+					for (int r = 0; r < R; r++)    
+					// Transform counts to indices.
+					count[r+1] += count[r];
+					for (int i = 0; i < N; i++)    
+					// Distribute.
+					aux[count[a[i].charAt(d)]++] = a[i];
+					for (int i = 0; i < N; i++)     
+					// Copy back.
+					a[i] = aux[i];
+				} 
+			}
+		}
+	\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]
+	\frametitle{ LSD radix sort}
+	\begin{flushleft}
+		To sort an array a[] of strings that each have exactly W characters, we do W key-indexed counting sorts: one for each character position, proceeding from right to left.
+	\end{flushleft}   
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{LSD radix sort }
+	\begin{figure}
+		\centering
+		\includegraphics[width=1.05\linewidth]{"../../../../../../Desktop/Screenshot 2020-10-18 at 10.37.36 PM"}
+		\caption{LSD}
+		\label{fig:screenshot-2020-10-18-at-10}
+	\end{figure}	
+\end{frame}
+
+\begin{frame}
+	\frametitle{LSD radix sort}
+	\pause
+	Q. What if strings are not all of same length?
+\end{frame}
+
+\begin{frame}
+	\frametitle{MSD radix sort}
+	\begin{block}{Concepts}
+		\begin{itemize}
+			\item Consider characters from left to right order.
+			\item Sort using dth character as the key (Using key-indexed counting)
+			\item A general-purpose string sort, where strings are not necessarily all the same length
+			\item Sorting such string can be done using key-indexed counting. 
+			\item If the strings are each of length W,
+			we sort the strings W times with key-indexed counting, using
+			each of the positions as the key, proceeding from right to left.
+		\end{itemize}
+	\end{block}
+\end{frame}
+\begin{frame}
+	\frametitle{MSD radix sort}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.85\linewidth]{"Screenshot 2020-10-20 at 9.52.19 AM"}
+		\caption{MSD Sorting}
+		\label{fig:screenshot-2020-10-20-at-9}
+	\end{figure}
+	
+\end{frame}
+\end{document}

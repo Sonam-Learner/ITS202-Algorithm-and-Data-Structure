@@ -1,0 +1,136 @@
+\documentclass[11pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usetheme{Copenhagen}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{outlines}
+\setbeamertemplate{caption}[numbered]
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+
+% Code
+\usepackage{courier} %% Sets font for listing as Courier.
+\usepackage{listings, xcolor}
+\lstset{
+	tabsize = 4, %% set tab space width
+	showstringspaces = false, %% prevent space marking in strings, string is defined as the text that is generally printed directly to the console
+	numbers = left, %% display line numbers on the left
+	commentstyle = \color{red}, %% set comment color
+	keywordstyle = \color{blue}, %% set keyword color
+	stringstyle = \color{red}, %% set string color
+	rulecolor = \color{black}, %% set frame color to avoid being affected by text color
+	basicstyle = \small \ttfamily , %% set listing font and size
+	breaklines = true, %% enable line breaking
+	numberstyle = \tiny,
+}
+
+
+\begin{document}
+	\author{Ms. Sonam Wangmo}
+	\title{ITS202: Algorithms and Data Structures}
+	\subtitle{Advanced Data Structures}
+	\institute{
+		\textcolor{blue}{Gyalpozhing College of Information Technology \\ Royal University of Bhutan} \\
+		\vspace{0.5cm}
+	}
+	%\date{}
+	\setbeamercovered{transparent}
+	%\setbeamertemplate{navigation symbols}{}
+	\begin{frame}[plain]
+		\maketitle
+	\end{frame}
+	\begin{frame}
+		\frametitle{Binary Tree Types}
+		\begin{block}{Types of Binary Trees}
+				\begin{enumerate}
+				\item General Binary tree
+				\item Strictly Binary tree
+				\item Skewed Binary tree
+				\item Complete Binary tree
+				\item Full Binary tree
+			\end{enumerate}
+		\end{block}
+	
+	\end{frame}
+
+		\begin{frame}
+		\frametitle{General Binary Tree}
+	    \begin{figure}
+	    	\centering
+	    	\includegraphics[width=0.7\linewidth]{"../../../../../../Desktop/Screenshot 2020-10-29 at 9.03.10 AM"}
+	    	\caption{}
+	    	\label{fig:screenshot-2020-10-29-at-9}
+	    \end{figure}
+	    a node can have any degree 0<= deg<= 2
+	\end{frame}
+
+	\begin{frame}	
+		\frametitle{Strictly Binary Trees}
+	    \begin{figure}
+	    	\centering
+	    	\includegraphics[width=0.7\linewidth]{"../../../../../../Desktop/Screenshot 2020-10-29 at 9.04.38 AM"}
+	    	\caption{}
+	    	\label{fig:screenshot-2020-10-29-at-9}
+	    \end{figure}
+      No node with degree one and each node should be with degree Zero or two\\
+      Both are strictly BT ??
+	\end{frame}
+
+    \begin{frame}	
+    	\frametitle{Complete Binary Trees}
+    	\begin{block}{Complete binary tree}
+    	  is a binary tree where
+    	  \begin{itemize}
+    	  	\item All the level except possibly the last level do have maximum number of nodes and
+    	  	\item In the last level, nodes occur as far and as left as possible
+    	  	\item Leaf nodes occurs on atmost two adjacent levels.
+    	  \end{itemize}	
+    	\end{block}
+    \end{frame}
+    
+     \begin{frame}	
+    	\frametitle{Complete Binary Trees}
+         \begin{figure}
+         	\centering
+         	\includegraphics[width=0.85\linewidth]{"../../../../../../Desktop/Screenshot 2020-10-29 at 9.18.02 AM"}
+         	\caption{}
+         	\label{fig:screenshot-2020-10-29-at-9}
+         \end{figure}
+    \end{frame}
+
+     \begin{frame}	
+    	\frametitle{Skewed Binary Trees}
+        \begin{figure}
+        	\centering
+        	\includegraphics[width=0.85\linewidth]{"../../../../../../Desktop/Screenshot 2020-10-29 at 9.22.33 AM"}
+        	\caption{Left Skewed BT	and Right Skewed BT}
+        	\label{fig:screenshot-2020-10-29-at-9}
+        \end{figure}  
+       
+       \textcolor{blue}{Left Skew BT:}	All initial nodes have empty right sub-tree\\
+       \textcolor{blue}{Right Skew BT:}	All initial nodes have empty left sub-tree
+      \\ Require more memory space
+    \end{frame}
+   
+    \begin{frame}	
+   	\frametitle{Full  Binary Trees}
+    \begin{figure}
+    	\centering
+    	\includegraphics[width=0.85\linewidth]{"../../../../../../Desktop/Screenshot 2020-10-29 at 9.32.39 AM"}
+    	\caption{Trees}
+    	\label{fig:screenshot-2020-10-29-at-9}
+    \end{figure}
+     Full BT is a strictly binary tree with all leaves in the last level.\\
+     Both are Full BT.\textcolor{red}{YES	or NO????
+}
+     
+   \end{frame}
+    
+\end{document}

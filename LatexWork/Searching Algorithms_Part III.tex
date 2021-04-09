@@ -1,0 +1,177 @@
+\documentclass[11pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usetheme{Copenhagen}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{outlines}
+\setbeamertemplate{caption}[numbered]
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+
+% Code
+\usepackage{courier} %% Sets font for listing as Courier.
+\usepackage{listings, xcolor}
+\lstset{
+	tabsize = 4, %% set tab space width
+	showstringspaces = false, %% prevent space marking in strings, string is defined as the text that is generally printed directly to the console
+	numbers = left, %% display line numbers on the left
+	commentstyle = \color{red}, %% set comment color
+	keywordstyle = \color{blue}, %% set keyword color
+	stringstyle = \color{red}, %% set string color
+	rulecolor = \color{black}, %% set frame color to avoid being affected by text color
+	basicstyle = \small \ttfamily , %% set listing font and size
+	breaklines = true, %% enable line breaking
+	numberstyle = \tiny,
+}
+
+
+\begin{document}
+	\author{Ms. Sonam Wangmo}
+	\title{ITS202: Algorithms and Data Structures}
+	\subtitle{Symbol Tables}
+	\institute{
+		\textcolor{blue}{Gyalpozhing College of Information Technology \\ Royal University of Bhutan} \\
+		\vspace{0.5cm}
+	}
+	%\date{}
+	\setbeamercovered{transparent}
+	%\setbeamertemplate{navigation symbols}{}
+	\begin{frame}[plain]
+		\maketitle
+	\end{frame}
+	\begin{frame}
+		\frametitle{Symbol Tables}
+			A \textbf{symbol table} is a data structure for key-value pairs that supports two operations: insert (put) a new pair into the table and search for (get) the value associated with a given key.\\ 
+	\end{frame}
+
+\begin{frame}
+	\frametitle{Symbol Tables}
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{"../../../../../../Desktop/Screenshot 2020-10-21 at 9.14.44 AM"}
+		\caption{Example}
+		\label{fig:screenshot-2020-10-21-at-9}
+	\end{figure}	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Symbol Tables}
+	 \begin{figure}
+	 	\centering
+	 	\includegraphics[width=1\linewidth]{"../../../../../../Desktop/Screenshot 2020-10-20 at 10.36.51 PM"}
+	 	\caption{Typical symbol-table applications}
+	 	\label{fig:screenshot-2020-10-20-at-10}
+	 \end{figure}
+	 
+\end{frame}
+
+\begin{frame}
+	\frametitle{Symbol Tables}
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{"../../../../../../Desktop/Screenshot 2020-10-20 at 10.56.59 PM"}
+		\caption{API for a generic basic symbol table}
+		\label{fig:screenshot-2020-10-20-at-10}
+	\end{figure}	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Elementary Implementation}
+	\begin{itemize}
+		\item Sequential search (unordered list)
+		\item Binary search (ordered array)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Elementary Implementation: Sequential search in LinkedList }
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{"../../../../../../Desktop/Screenshot 2020-10-21 at 1.10.21 PM"}
+		\caption{Trace of linked-list ST implementation}
+		\label{fig:screenshot-2020-10-21-at-1}
+	\end{figure}	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Elementary Implementation: Sequential search in LinkedList }
+    \begin{figure}
+    	\centering
+    	\includegraphics[width=0.7\linewidth]{"../../../../../../Desktop/Screenshot 2020-10-21 at 1.12.16 PM"}
+    	\caption{Summary}
+    	\label{fig:screenshot-2020-10-21-at-1}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Elementary Implementation: Binary search in an Ordered array}
+   \begin{figure}
+   	\centering
+   	\includegraphics[width=0.8\linewidth]{"../../../../../../Desktop/Screenshot 2020-10-21 at 8.26.54 PM"}
+   	\caption{Search}
+   	\label{fig:screenshot-2020-10-21-at-8}
+   \end{figure} 
+\end{frame}
+
+\begin{frame}
+	\frametitle{Elementary Implementation: Binary search in an Ordered array}
+   \begin{figure}
+   	\centering
+   	\includegraphics[width=0.9\linewidth]{"../../../../../../Desktop/Screenshot 2020-10-21 at 8.32.47 PM"}
+   	\caption{Insertion}
+   	\label{fig:screenshot-2020-10-21-at-8}
+   \end{figure} 
+\end{frame}
+
+\begin{frame}
+	\frametitle{Elementary Implementation: Binary search in an Ordered array}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{"../../../../../../Desktop/Screenshot 2020-10-21 at 9.54.16 PM"}
+		\caption{Summary}
+		\label{fig:screenshot-2020-10-21-at-9}
+	\end{figure}	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Ordered Operations}
+    \begin{figure}
+    	\centering
+    	\includegraphics[width=0.75\linewidth]{"../../../../../../Desktop/Screenshot 2020-10-21 at 9.57.23 PM"}
+    	\caption{Example}
+    	\label{fig:screenshot-2020-10-21-at-9}
+    \end{figure}    	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Ordered Operations}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8\linewidth]{"../../../../../../Desktop/Screenshot 2020-10-21 at 9.59.05 PM"}
+		\caption{}
+		\label{fig:screenshot-2020-10-21-at-9}
+	\end{figure}	
+\end{frame}
+
+
+
+\begin{frame}
+	\frametitle{Binary search: ordered symbol table operations summary}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\linewidth]{"../../../../../../Desktop/Screenshot 2020-10-21 at 10.00.27 PM"}
+		\caption{order of growth of the running time for ordered symbol table operations}
+		\label{fig:screenshot-2020-10-21-at-10}
+	\end{figure}	
+\end{frame}
+
+
+
+\end{document}

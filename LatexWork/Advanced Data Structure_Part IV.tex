@@ -1,0 +1,239 @@
+
+\documentclass[11pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usetheme{Copenhagen}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{outlines}
+\setbeamertemplate{caption}[numbered]
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+
+
+% Code
+\usepackage{courier} %% Sets font for listing as Courier.
+\usepackage{listings, xcolor}
+\lstset{
+	tabsize = 4, %% set tab space width
+	showstringspaces = false, %% prevent space marking in strings, string is defined as the text that is generally printed directly to the console
+	numbers = left, %% display line numbers on the left
+	commentstyle = \color{red}, %% set comment color
+	keywordstyle = \color{blue}, %% set keyword color
+	stringstyle = \color{red}, %% set string color
+	rulecolor = \color{black}, %% set frame color to avoid being affected by text color
+	basicstyle = \small \ttfamily , %% set listing font and size
+	breaklines = true, %% enable line breaking
+	numberstyle = \tiny,
+}
+
+%Page Number
+\addtobeamertemplate{navigation symbols}{}{%
+	\usebeamerfont{footline}%
+	\usebeamercolor[fg]{footline}%
+	\hspace{1em}%
+	\insertframenumber/\inserttotalframenumber
+}
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+	\insertshorttitle\hfill%
+	\insertframenumber\,/\,\inserttotalframenumber}
+
+\begin{document}
+	\author{Ms. Sonam Wangmo}
+	\title{ITS202: Algorithms and Data Structures}
+	\subtitle{Advanced Data Structures}
+	\institute{
+		\textcolor{blue}{Gyalpozhing College of Information Technology \\ Royal University of Bhutan} \\
+		\vspace{0.5cm}
+	}
+	%\date{}
+	\setbeamercovered{transparent}
+	%\setbeamertemplate{navigation symbols}{}
+	\begin{frame}[plain]
+		\maketitle
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{BST Ordered Operations: Keys()}
+	      \textbf{BST Traversal: }\textcolor{blue}{Inorder Traversal}
+	      \begin{enumerate}
+	      	\item Print all the keys in the left subtree (which are less than the key at the root by definition of BSTs)
+	      	\item Then print the key at the root,
+	      	\item Then print all the keys in the right subtree (which are greater than the key at the root by definition of BSTs)
+	      \end{enumerate}
+	\end{frame}	
+
+    \begin{frame}
+    	\frametitle{BST Ordered Operations: Keys()}
+    	\textbf{BST Traversal: }\textcolor{blue}{Inorder Traversal}
+    	\begin{enumerate}
+    		\item Traverse Left Subtree
+    		\item Enqueue Key 
+    		\item Traverse Right Subtree
+    	\end{enumerate}
+    \end{frame}	
+    
+     \begin{frame}
+    	\frametitle{BST Ordered Operations: Keys()}
+         \begin{figure}
+         	\centering
+         	\includegraphics[width=0.9\linewidth]{"Screenshot 2020-11-13 at 4.09.37 PM"}
+         	\caption{keys() method}
+         	\label{fig:screenshot-2020-11-13-at-4}
+         \end{figure}
+        \textcolor{blue}{Property: } Inorder traversal of a BST yields keys in ascending order.
+    \end{frame}	
+
+     \begin{frame}
+    	\frametitle{\textcolor{red}{Analysis:} How efficient are the order-based operations in BSTs ?} 
+    	\alert{ In a BST,all operations take time proportional to the height of the tree, in the worst case.}
+    \end{frame}	
+
+    
+
+      \begin{frame}
+    	\frametitle{BST: ordered symbol table operations summary} 
+    	\begin{figure}
+    		\centering
+    		\includegraphics[width=1.1\linewidth]{"Screenshot 2020-11-13 at 8.43.37 PM"}
+    		\caption{Summary}
+    		\label{fig:screenshot-2020-11-13-at-8}
+    	\end{figure}  	
+    \end{frame}	
+
+    \begin{frame}
+	   	\frametitle{BST: Deletion} 
+	   	 \textcolor{blue}{ Predecessor and Successor Concepts}\\
+	   	 Where is the predecessor of a node in a tree􏰎, assuming all keys are distinct􏰀?
+	    \begin{figure}
+	    	\centering
+	    	\includegraphics[width=0.7\linewidth]{"Screenshot 2020-11-15 at 9.48.41 PM"}
+	    	\caption{BST}
+	    	\label{}
+	    \end{figure}
+   \end{frame}	
+
+     \begin{frame}
+    	\frametitle{BST: Deletion} 
+    	\textcolor{blue}{ Predecessor and Successor Concepts}\\
+    	If X has two children􏰎 its predecessor is value in its left subtree and its successor value in its right subtree􏰈. 
+    	\begin{figure}
+    		\centering
+    		\includegraphics[width=0.3\linewidth]{"Screenshot 2020-11-15 at 9.54.39 PM"}
+    		\caption{}
+    		\label{fig:screenshot-2020-11-15-at-9}
+    	\end{figure}
+    	
+    	\alert {If it does not have a left child􏰎, a node􏰐s predecessor is its fi􏰂rst left ancestor}
+    \end{frame}	
+
+   \begin{frame}
+   	\frametitle{BST: Deletion} 
+   	 \begin{block}{Delete the minimum/maximum}
+   	 deleteMin(): Remove the key-value pair with the smallest key.
+   	 \end{block}
+     \textcolor{blue}{To delete the minimum key:}
+    \begin{enumerate}
+    	\item Go left until finding a node with a null left link
+    	\item Replace that node by its right link.
+    	\item Update subtree counts.
+    \end{enumerate}	   
+   \end{frame}	
+
+    \begin{frame}
+   	\frametitle{BST: Deletion} 
+   	\begin{figure}
+   		\centering
+   		\includegraphics[width=0.38\linewidth]{"Screenshot 2020-11-16 at 9.41.40 PM"}
+   		\caption{Deleting the minimum in a BST}
+   		\label{fig:screenshot-2020-11-16-at-9}
+   	\end{figure}  	
+   \end{frame}	
+
+   \begin{frame}
+  	\frametitle{BST: Deletion} 
+  	  \begin{figure}
+  	  	\centering
+  	  	\includegraphics[width=0.9\linewidth]{"Screenshot 2020-11-16 at 9.41.58 PM"}
+  	  	\caption{deleteMin() method}
+  	  	\label{fig:screenshot-2020-11-16-at-9}
+  	  \end{figure}  
+  \end{frame}	
+
+   \begin{frame}
+   	\frametitle{BST: Hibbard Deletion} 
+   	To delete a node with key k: search for node t containing key k. \\
+   	\textcolor{blue}{Case 0.} [0 children] Delete t by setting parent link to null.
+   	\begin{figure}
+   		\centering
+   		\includegraphics[width=1\linewidth]{"Screenshot 2020-11-16 at 10.02.29 PM"}
+   		\caption{Deletion in a BST}
+   		\label{fig:screenshot-2020-11-16-at-10}
+   	\end{figure}
+   \end{frame}	
+
+    \begin{frame}
+   	\frametitle{BST: Hibbard Deletion} 
+   	To delete a node with key k: search for node t containing key k.  \\
+   	\textcolor{blue}{Case 1. [1 child]} Delete t by replacing parent link.
+   \begin{figure}
+   	\centering
+   	\includegraphics[width=1.1\linewidth]{"Screenshot 2020-11-16 at 10.17.41 PM"}
+   	\caption{Deletion in BST}
+   	\label{fig:screenshot-2020-11-16-at-10}
+   \end{figure}
+   \end{frame}	
+
+   \begin{frame}
+  	\frametitle{BST: Hibbard Deletion} 
+  	To delete a node with key k: search for node t containing key k. \\
+  	\textcolor{blue}{Case 2. [2 children]} \\
+  	\begin{enumerate}
+  		\item Find successor x of t.  \alert{ <--- x has no left child}
+  		\item Delete the minimum in t's right subtree.  \alert{ <---  but don't garbage collect x}
+  		\item Put x in t's spot.  \alert{ <---  still a BST}
+  	\end{enumerate}
+  \end{frame}	
+
+   \begin{frame}
+  	\frametitle{BST: Hibbard Deletion} 
+  	\begin{figure}
+  		\centering
+  		\includegraphics[width=0.9\linewidth]{"Screenshot 2020-11-16 at 11.45.48 PM"}
+  		\caption{Deletion in BST}
+  		\label{fig:screenshot-2020-11-16-at-11}
+  	\end{figure}
+  	
+  \end{frame}	
+
+  \begin{frame}
+  	\frametitle{Hibbard deletion: Java implementation} 
+  	\begin{figure}
+  		\centering
+  		\includegraphics[width=1\linewidth]{"Screenshot 2020-11-16 at 10.33.33 PM"}
+  		\caption{}
+  		\label{fig:screenshot-2020-11-16-at-10}
+  	\end{figure}	
+  \end{frame}	
+
+ \begin{frame}
+ 	\frametitle{BST Time Complexity} 
+ 	\begin{figure}
+ 			\centering
+ 			\includegraphics[width=0.7\linewidth]{"Screenshot 2020-11-16 at 10.36.22 PM"}
+ 			\caption{}
+ 			\label{fig:screenshot-2020-11-16-at-10}
+ 	\end{figure}	
+ \end{frame}	
+
+ \begin{frame}
+ 	\alert{WHAT IS THE BAD NEWS???}	
+ \end{frame}	
+  
+\end{document}

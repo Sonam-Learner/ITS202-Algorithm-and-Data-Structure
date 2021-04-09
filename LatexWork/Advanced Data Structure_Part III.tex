@@ -1,0 +1,423 @@
+\documentclass[11pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usetheme{Copenhagen}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{outlines}
+\setbeamertemplate{caption}[numbered]
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+
+% Code
+\usepackage{courier} %% Sets font for listing as Courier.
+\usepackage{listings, xcolor}
+\lstset{
+	tabsize = 4, %% set tab space width
+	showstringspaces = false, %% prevent space marking in strings, string is defined as the text that is generally printed directly to the console
+	numbers = left, %% display line numbers on the left
+	commentstyle = \color{red}, %% set comment color
+	keywordstyle = \color{blue}, %% set keyword color
+	stringstyle = \color{red}, %% set string color
+	rulecolor = \color{black}, %% set frame color to avoid being affected by text color
+	basicstyle = \small \ttfamily , %% set listing font and size
+	breaklines = true, %% enable line breaking
+	numberstyle = \tiny,
+}
+
+
+\begin{document}
+	\author{Ms. Sonam Wangmo}
+	\title{ITS202: Algorithms and Data Structures}
+	\subtitle{Advanced Data Structures}
+	\institute{
+		\textcolor{blue}{Gyalpozhing College of Information Technology \\ Royal University of Bhutan} \\
+		\vspace{0.5cm}
+	}
+	%\date{}
+	\setbeamercovered{transparent}
+	%\setbeamertemplate{navigation symbols}{}
+	\begin{frame}[plain]
+		\maketitle
+	\end{frame}
+	\begin{frame}
+		\frametitle{Search Trees}
+		\begin{enumerate}
+			\item Binary Search trees
+			\item Balanaced Binary Trees
+			\begin{enumerate}
+				\item Red Black Trees
+				\item AVL trees
+				\item B trees
+			\end{enumerate}
+		\end{enumerate}
+	\end{frame}
+    \begin{frame}
+    	\frametitle{Binary Search Trees}
+    		\begin{enumerate}
+    		\item Binary Search Trees
+    		\item Ordered Operations
+    	    \item Deletion
+    		\end{enumerate}
+    \end{frame}
+   
+    \begin{frame}
+   	\frametitle{Binary Search Trees}
+   	\begin{block}{Definition}
+   		\textbf{Binary Search trees} is a binary tree T with each position p storing a key-value pair(k,v) such that :
+   		\begin{itemize}
+   			\item Keys stored in the left subtree of p are less than k.
+   			\item Keys stored in the right subtree of p are greater than k.
+   		\end{itemize}
+   	\end{block}
+   \end{frame}
+
+     \begin{frame}
+    	\frametitle{Binary Search Trees}
+     \begin{figure}
+    	\centering
+    	\includegraphics[width=0.9\linewidth]{"Screenshot 2020-11-02 at 10.08.12 AM"}
+    	\caption{Binary Tree example}
+    	\label{fig:screenshot-2020-11-02-at-10}
+    \end{figure}
+    \end{frame}
+  
+   
+     \begin{frame}
+    	\frametitle{Binary Search Trees}
+    	\begin{figure}
+    		\centering
+    		\includegraphics[width=0.5\linewidth]{"Screenshot 2020-11-02 at 10.01.34 AM"}
+    		\caption{Binary Search Tree}
+    		\label{fig:screenshot-2020-11-02-at-10}
+    	\end{figure}
+    	\begin{alertblock}{Note}
+    		As a matter of convenience, we will not diagram the values associated with keys, since those values do not affect the placement of items within a search tree.
+    	\end{alertblock}
+    \end{frame}
+    
+     \begin{frame}
+    	\frametitle{BST representation in Java}
+        \begin{block}{A Node is composed of four fields:}
+        	\begin{itemize}
+        		\item A Key and a Value.
+        		\item A reference to the left and right subtree.
+        	\end{itemize}
+        \end{block}
+       \begin{figure}
+       	\centering
+       	\includegraphics[width=0.8\linewidth]{"Screenshot 2020-11-02 at 10.21.59 AM"}
+       	\caption{BST representation}
+       	\label{fig:screenshot-2020-11-02-at-10}
+       \end{figure}   
+    \end{frame}
+     
+      \begin{frame}
+     	\frametitle{BST representation in Java}
+     	\begin{block}{Node count N}
+     	The instance variable N gives the node count in the subtree rooted at the node.\\
+     	\textcolor{blue}{size(x) = size(x.left) + size(x.right) + 1}
+     	\end{block}
+        \begin{figure}
+        	\centering
+        	\includegraphics[width=0.5\linewidth]{"Screenshot 2020-11-02 at 9.56.48 PM"}
+        	\caption{BST}
+        	\label{fig:screenshot-2020-11-02-at-9}
+        \end{figure}
+        
+     \end{frame}
+   
+      \begin{frame}[fragile]
+     	\frametitle{BST representation in Java}
+     	 \begin{block}{Node class in BST}
+    	\begin{lstlisting}[language=Java]
+     	 private class Node
+     	 	{
+     	 			private Key key;
+     	 			private Value val;
+     	 			private Node left, right;
+     	 			public Node(Key key, Value val)
+     	 			{
+     	 				this.key = key;
+     	 				this.val = val;
+     	 			}
+     	 	}
+     	\end{lstlisting}
+     	 \end{block}
+         \alert{Key and Value are generic types; Key is Comparable}
+     \end{frame}
+ 
+      \begin{frame}[fragile]
+     	\frametitle{BST Implementation(Skeleton)}
+      	\begin{lstlisting}[language=Java]
+        public class BST<Key extends Comparable<Key>, Value>
+        {
+        	private Node root;
+        	private class Node
+           {  /* see previous slide */  }
+        	public void put(Key key, Value val)
+         	{  /* see next slides */  }
+        	public Value get(Key key)
+        	{  /* see next slides */  }
+        	public void delete(Key key)
+        	{  /* see next slides */  }
+        	public Iterable<Key> iterator()
+        	{  /* see next slides */  }
+      	}
+   	\end{lstlisting}
+     \end{frame}
+ 
+    \begin{frame}[fragile]
+    	\frametitle{Binary Search Tree Demo}
+    	\begin{block}{Note}
+    		 If a node containing the key is in the table, we have a search hit, so we return the associated value. Otherwise, we have a search miss (and return null).\\
+    		 	\textcolor{blue}{Search: }If less, go left; if greater, go right; if equal, search hit.
+    	\end{block}
+        \begin{figure}
+        	\centering
+        	\includegraphics[width=0.6\linewidth]{"Screenshot 2020-11-02 at 10.56.03 AM"}
+        	\caption{BST Search demo}
+        	\label{fig:screenshot-2020-11-02-at-10}
+        \end{figure}    
+    \end{frame}
+
+     \begin{frame}[fragile]
+    	\frametitle{Binary Search Tree Demo}
+        \begin{figure}
+        	\centering
+        	\includegraphics[width=0.9\linewidth]{"Screenshot 2020-11-02 at 12.20.42 PM"}
+        	\caption{Search hit (left) and search miss (right) in a BST}
+        	\label{fig:screenshot-2020-11-02-at-12}
+        \end{figure}
+          
+    \end{frame}
+    
+    \begin{frame}[fragile]
+    	\frametitle{Binary Search Tree Demo}
+    	\textcolor{blue}{Insert: }If less, go left; if greater, go right; if null, insert.
+    	\begin{figure}
+    		\centering
+    		\includegraphics[width=0.9\linewidth]{"Screenshot 2020-11-02 at 10.58.51 AM"}
+    		\caption{BST Insert demo}
+    		\label{fig:screenshot-2020-11-02-at-10}
+    	\end{figure}	
+    \end{frame}
+
+       \begin{frame}[fragile]
+    	\frametitle{BST Search: Java Implementation}
+    	\textcolor{blue}{Get: } Return value corresponding to given key, or null if no such key.
+    	\begin{lstlisting}[language=Java]
+        public Value get(Key key)
+         {
+         	Node x = root;
+         	while (x != null)
+         	{
+         		int cmp = key.compareTo(x.key);
+         		if      (cmp  < 0) x = x.left;
+         		else if (cmp  > 0) x = x.right;
+         		else return x.val;
+         	}
+         	return null;
+         }
+    	\end{lstlisting}
+        \alert{Cost: Number of compares is equal to 1 + depth of node.}
+    \end{frame}
+
+     \begin{frame}[fragile]
+     	\frametitle{BST Insert}
+     	\textbf{\textcolor{blue}{Put:} }Associate value with key.\\
+     	\begin{block}{Search for key, then two cases: } 
+         	\\ Key in tree : reset value.
+     		\\ Key not in tree : add new node.
+     	\end{block}
+     \end{frame}
+ 
+      \begin{frame}[fragile]
+     	\frametitle{BST Insert}
+     	 \begin{figure}
+     		\centering
+     		\includegraphics[width=0.4\linewidth]{"Screenshot 2020-11-02 at 10.34.03 PM"}
+     		\caption{Insertion into a BST}
+     		\label{fig:screenshot-2020-11-02-at-10}
+     	\end{figure}
+     \end{frame}
+ 
+    \begin{frame}[fragile]
+    	\frametitle{BST Insert}
+        \begin{figure}
+        	\centering
+        	\includegraphics[width=0.55\linewidth]{"Screenshot 2020-11-02 at 10.39.30 PM"}
+        	\caption{BST trace for standard indexing client}
+        	\label{fig:screenshot-2020-11-02-at-10}
+        \end{figure}
+        
+    \end{frame}
+
+      \begin{frame}[fragile]
+    	\frametitle{BST Insert: Implementation}
+    	\begin{figure}
+    		\centering
+    		\includegraphics[width=0.9\linewidth]{"Screenshot 2020-11-02 at 10.45.02 PM"}
+    		\caption{}
+    		\label{fig:screenshot-2020-11-02-at-10}
+    	\end{figure}	
+    \end{frame}
+
+     \begin{frame}[fragile]
+    	\frametitle{BST Running Time Analysis}
+    	\begin{block}{Search and Insert Operation in BST}
+    		\textcolor{blue}{Best Case:} $\omega$(log n) or  $\omega$(1)\\
+    		\textcolor{blue}{Worst Case:} O(n)
+    	\end{block}
+        \begin{figure}
+        	\centering
+        	\includegraphics[width=1.001\linewidth]{"Screenshot 2020-11-03 at 10.19.11 PM"}
+        	\caption{Tree Shape}
+        	\label{fig:screenshot-2020-11-03-at-10}
+        \end{figure}
+        \alert{The running times of algorithms on binary
+        	search trees depend on the shapes of the trees, which, in turn, depend on the order in which keys are inserted.}
+    \end{frame}
+
+    \begin{frame}[fragile]
+    	\frametitle{BST Ordered Operations}
+    	\begin{exampleblock}{Minimum}
+    		If the left link of the root is null, the smallest key in a BST is the key at the root; if the left link is not null, the smallest key in the BST is the smallest key in the subtree rooted at the node referenced by the left link.
+    	\end{exampleblock}
+        \begin{exampleblock}{Maximum}
+        	Finding the maximum key is similar, moving to the right instead of to the left.
+        \end{exampleblock}
+    \end{frame}
+ 
+    \begin{frame}[fragile]
+  	\frametitle{BST Ordered Operations}
+  	\begin{figure}
+  		\centering
+  		\includegraphics[width=0.8\linewidth]{"Screenshot 2020-11-03 at 10.59.38 PM"}
+  		\caption{}
+  		\label{fig:screenshot-2020-11-03-at-10}
+  	\end{figure}	
+  \end{frame}
+      \begin{frame}[fragile]
+     	\frametitle{BST Ordered Operations}
+        \begin{figure}
+        	\centering
+        	\includegraphics[width=0.9\linewidth]{"Screenshot 2020-11-03 at 10.39.52 PM"}
+        	\caption{Code for Min()}
+        	\label{fig:screenshot-2020-11-03-at-10}
+        \end{figure}
+        
+     \end{frame}
+      
+   \begin{frame}[fragile]
+   	\frametitle{BST Ordered Operations:  Floor and ceiling}
+     \begin{exampleblock}{ Floor and ceiling}
+     	Floor: Largest key $<= $ a given key. \\
+     	Ceiling: Smallest key $>=$ a given key.
+     \end{exampleblock}
+   	\begin{figure}
+   		\centering
+   		\includegraphics[width=0.5\linewidth]{"Screenshot 2020-11-03 at 11.01.57 PM"}
+   		\caption{}
+   		\label{fig:screenshot-2020-11-03-at-11}
+   	\end{figure}
+   	\alert{Q. How to find the floor / ceiling?}
+   \end{frame}
+   
+    \begin{frame}[fragile]
+	   	\frametitle{BST Ordered Operations:  Computing the floor}
+	   \begin{figure}
+	   	\centering
+	   	\includegraphics[width=0.9\linewidth]{"Screenshot 2020-11-03 at 11.15.58 PM"}
+	   	\label{fig:screenshot-2020-11-03-at-11}
+	   \end{figure}
+   \end{frame}
+
+    \begin{frame}[fragile]
+   	\frametitle{BST Ordered Operations:  Computing the floor}
+     \begin{figure}
+     	\centering
+     	\includegraphics[width=0.34\linewidth]{"Screenshot 2020-11-03 at 11.18.17 PM"}
+     	\caption{Computing the floor function}
+     	\label{fig:screenshot-2020-11-03-at-11}
+     \end{figure}
+     
+   \end{frame}
+
+   \begin{frame}[fragile]
+   	\frametitle{BST Ordered Operations:  Computing the floor}
+   	\begin{figure}
+   		\centering
+   		\includegraphics[width=0.8\linewidth]{"Screenshot 2020-11-03 at 11.23.07 PM"}
+   		\caption{Code for floor function}
+   		\label{fig:screenshot-2020-11-03-at-11}
+   	\end{figure}	
+   \end{frame}
+
+    \begin{frame}[fragile]
+   	\frametitle{BST Ordered Operations:  Rank and Select}
+    \textcolor{blue}{Q. }How to implement rank() and select() efficiently?\\
+    \textcolor{blue}{A. } In each node, we store the number of nodes in the subtree rooted at that node; to implement size(), return the count at the root. 
+     \begin{figure}
+     	\centering
+     	\includegraphics[width=0.6\linewidth]{"Screenshot 2020-11-04 at 9.27.23 AM"}
+     	\caption{BST}
+     	\label{fig:screenshot-2020-11-04-at-9}
+     \end{figure}
+   \end{frame}
+
+     \begin{frame}[fragile]
+    	\frametitle{BST Ordered implementation: subtree counts}
+    	\begin{figure}
+    		\centering
+    		\includegraphics[width=0.5\linewidth]{"Screenshot 2020-11-04 at 9.38.24 AM"}
+    		\caption{Node class}
+    		\label{fig:screenshot-2020-11-04-at-9}
+    	\end{figure}
+    	\begin{figure}
+    		\centering
+    		\includegraphics[width=0.5\linewidth]{"Screenshot 2020-11-04 at 9.40.05 AM"}
+    		\caption{Size Method}
+    		\label{fig:screenshot-2020-11-04-at-9}
+    	\end{figure}	
+    \end{frame}
+
+    \begin{frame}[fragile]
+    	\frametitle{BST Ordered implementation: subtree counts}
+    	\begin{figure}
+    		\centering
+    		\includegraphics[width=1\linewidth]{"Screenshot 2020-11-04 at 10.44.39 AM"}
+    		\caption{Put Method}
+    		\label{fig:screenshot-2020-11-04-at-10}
+    	\end{figure}
+    \end{frame}
+
+    \begin{frame}[fragile]
+    	\frametitle{BST Ordered implementation: Rank}
+       \textcolor{blue}{Rank. }	How many keys  $< $ k ?
+       \begin{figure}
+       	\centering
+       	\includegraphics[width=0.7\linewidth]{"Screenshot 2020-11-04 at 10.54.45 AM"}
+       	\caption{BST}
+       	\label{fig:screenshot-2020-11-04-at-10}
+       \end{figure}
+    \end{frame}
+
+    \begin{frame}[fragile]
+    	\frametitle{BST Ordered implementation: Rank}
+    	\begin{figure}
+    		\centering
+    		\includegraphics[width=1.05\linewidth]{"Screenshot 2020-11-04 at 10.56.40 AM"}
+    		\caption{rank method}
+    		\label{fig:screenshot-2020-11-04-at-10}
+    	\end{figure}
+    	
+    \end{frame}
+  
+\end{document}

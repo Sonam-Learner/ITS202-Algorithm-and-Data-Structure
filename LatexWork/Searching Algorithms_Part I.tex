@@ -1,0 +1,101 @@
+\documentclass[11pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usetheme{Copenhagen}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{outlines}
+\setbeamertemplate{caption}[numbered]
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+
+% Code
+\usepackage{courier} %% Sets font for listing as Courier.
+\usepackage{listings, xcolor}
+\lstset{
+	tabsize = 4, %% set tab space width
+	showstringspaces = false, %% prevent space marking in strings, string is defined as the text that is generally printed directly to the console
+	numbers = left, %% display line numbers on the left
+	commentstyle = \color{red}, %% set comment color
+	keywordstyle = \color{blue}, %% set keyword color
+	stringstyle = \color{red}, %% set string color
+	rulecolor = \color{black}, %% set frame color to avoid being affected by text color
+	basicstyle = \small \ttfamily , %% set listing font and size
+	breaklines = true, %% enable line breaking
+	numberstyle = \tiny,
+}
+
+
+\begin{document}
+	\author{Ms. Sonam Wangmo}
+	\title{ITS202: Algorithms and Data Structures}
+	\subtitle{Searching Algorithms}
+	\institute{
+		\textcolor{blue}{Gyalpozhing College of Information Technology \\ Royal University of Bhutan} \\
+		\vspace{0.5cm}
+	}
+
+	%\date{}
+	\setbeamercovered{transparent}
+	%\setbeamertemplate{navigation symbols}{}
+	\begin{frame}[plain]
+		\maketitle
+	\end{frame}
+	\begin{frame}
+		\frametitle{Searching Algorithms}
+		Searching Algorithms that we will study are: 
+		\begin{enumerate}
+			\item Linear Search
+			\item Binary Search
+		\end{enumerate}		 
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Linear Search}
+			Idea of the algorithm is to iterate across the array from left to right, searching for a specified element. \\
+			\textbf{In Psuedocode}
+			\begin{enumerate}
+				\item Repeat, starting at the first element:
+				\begin{itemize}
+					\item If the first element is what you’re looking for (the target), stop.
+					\item Otherwise, move to the next element.
+				\end{itemize} 
+				\item For i from 0 to n-1
+				If i’th element is the element to be searched
+				\begin{itemize}
+						\item Return true \\
+				\end{itemize}
+				Return false
+				\end{enumerate}		 
+	\end{frame}
+
+\begin{frame}
+	\frametitle{Binary Search}
+	 \begin{block}{Concepts}
+	 The idea of algorithm is to divide and conquer, reducing the search by half each time while trying to find the target element.
+	\textbf{Important:}  To perform binary search in an array, the array needs to be sorted always.
+	 \end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Binary Search}
+	\begin{block}{Psuedocode}
+	\begin{enumerate}
+		\item Repeat until the array is of size 0
+		\begin{itemize}
+			\item Calculate the middle point of the current array.
+			\item If the target is at the middle, stop.
+			\item Otherwise, if the target is less than what’s at the middle, repeat, changing the end
+			point to just to the left of the middle.
+			\item Otherwise, if the target is greater than what’s at the middle, repeat, changing the start point to just to the right of the middle.
+		\end{itemize}
+	\end{enumerate}	
+\end{block}
+\end{frame}
+\end{document}

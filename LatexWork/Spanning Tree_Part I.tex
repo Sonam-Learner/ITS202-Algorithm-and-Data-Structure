@@ -1,0 +1,99 @@
+\documentclass[11pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usetheme{Copenhagen}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{outlines}
+\setbeamertemplate{caption}[numbered]
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+
+% Code
+\usepackage{courier} %% Sets font for listing as Courier.
+\usepackage{listings, xcolor}
+\lstset{
+	tabsize = 4, %% set tab space width
+	showstringspaces = false, %% prevent space marking in strings, string is defined as the text that is generally printed directly to the console
+	numbers = left, %% display line numbers on the left
+	commentstyle = \color{red}, %% set comment color
+	keywordstyle = \color{blue}, %% set keyword color
+	stringstyle = \color{red}, %% set string color
+	rulecolor = \color{black}, %% set frame color to avoid being affected by text color
+	basicstyle = \small \ttfamily , %% set listing font and size
+	breaklines = true, %% enable line breaking
+	numberstyle = \tiny,
+}
+
+%Page Number
+\addtobeamertemplate{navigation symbols}{}{%
+	\usebeamerfont{footline}%
+	\usebeamercolor[fg]{footline}%
+	\hspace{1em}%
+	\insertframenumber/\inserttotalframenumber
+}
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+	\insertshorttitle\hfill%
+	\insertframenumber\,/\,\inserttotalframenumber}
+\begin{document}
+	\author{Ms. Sonam Wangmo}
+	\title{ITS202: Algorithms and Data Structure}
+	\subtitle{Spanning Tree}
+	\institute{
+		\textcolor{blue}{Gyalpozhing College of Information Technology \\ Royal University of Bhutan} \\
+		\vspace{0.5cm}
+	}
+	%\date{}
+	\setbeamercovered{transparent}
+	%\setbeamertemplate{navigation symbols}{}
+	\begin{frame}[plain]
+		\maketitle
+	\end{frame}
+
+  \begin{frame}
+ 	\frametitle	{Spanning Tree} 
+ \begin{block}{Definition}
+ 	A spanning tree of G is a subgraph T that is: 
+ 	\begin{itemize}
+ 		\item Connected
+ 		\item Acyclic
+ 		\item Includes all of the vertices
+ 	\end{itemize}
+    \begin{figure}
+    	\centering
+    	\includegraphics[width=0.7\linewidth]{"Screenshot 2020-12-15 at 1.41.34 PM"}
+    	\label{fig:screenshot-2020-12-15-at-1}
+    \end{figure}    
+ \end{block}
+ \end{frame}
+
+ \begin{frame}
+	\frametitle	{Spanning Tree} 
+	\textcolor{blue}{Given. } Undirected graph G with positive edge weights (connected). \\
+	\textcolor{blue}{Goal. }  Find a min weight spanning tree.
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\linewidth]{"Screenshot 2020-12-15 at 1.48.15 PM"}
+		\label{fig:screenshot-2020-12-15-at-1}
+	\end{figure}
+	minimum spanning tree T\\
+	(cost = 50 = 4 + 6 + 8 + 5 + 11 + 9 + 7)
+\end{frame}
+
+\begin{frame}
+	\frametitle	{Spanning Tree} 
+    \begin{block}{Implementation of MST}
+    	\begin{itemize}
+    		\item Kruskal Algorithm
+    		\item Prims Algorithms
+    	\end{itemize}
+    \end{block}
+\end{frame}
+
+\end{document}

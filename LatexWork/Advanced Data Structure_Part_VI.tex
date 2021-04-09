@@ -1,0 +1,208 @@
+
+\documentclass[11pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usetheme{Copenhagen}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{outlines}
+\setbeamertemplate{caption}[numbered]
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+
+
+% Code
+\usepackage{courier} %% Sets font for listing as Courier.
+\usepackage{listings, xcolor}
+\lstset{
+	tabsize = 4, %% set tab space width
+	showstringspaces = false, %% prevent space marking in strings, string is defined as the text that is generally printed directly to the console
+	numbers = left, %% display line numbers on the left
+	commentstyle = \color{red}, %% set comment color
+	keywordstyle = \color{blue}, %% set keyword color
+	stringstyle = \color{red}, %% set string color
+	rulecolor = \color{black}, %% set frame color to avoid being affected by text color
+	basicstyle = \small \ttfamily , %% set listing font and size
+	breaklines = true, %% enable line breaking
+	numberstyle = \tiny,
+}
+
+%Page Number
+\addtobeamertemplate{navigation symbols}{}{%
+	\usebeamerfont{footline}%
+	\usebeamercolor[fg]{footline}%
+	\hspace{1em}%
+	\insertframenumber/\inserttotalframenumber
+}
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+	\insertshorttitle\hfill%
+	\insertframenumber\,/\,\inserttotalframenumber}
+
+\begin{document}
+	\author{Ms. Sonam Wangmo}
+	\title{ITS202: Algorithms and Data Structures}
+	\subtitle{Advanced Data Structures}
+	\institute{
+		\textcolor{blue}{Gyalpozhing College of Information Technology \\ Royal University of Bhutan} \\
+		\vspace{0.5cm}
+	}
+	%\date{}
+	\setbeamercovered{transparent}
+	%\setbeamertemplate{navigation symbols}{}
+	\begin{frame}[plain]
+		\maketitle 
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Hash Tables}
+		\begin{block}{Concepts}
+			\begin{itemize}
+				\item A hash table is a data structure that is used to store keys/value pairs. 
+				\item Uses hash function to compute an index into an array in which an element will be inserted or searched. 
+				\item The best case time complexity required to search, insert and delete for an element in a hash table is O(1). Fast Retrieval of data no matter how much data is.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+
+     \begin{frame}
+     	\frametitle{Hash Tables}
+     	\begin{block}{Hash Functions}
+     		\begin{itemize}
+     		  \item Hash function Maps each key k to an integer in the range [0, N-1]. 
+     		  \item Calculation applied to a key to transform into an address.
+     		  \item For numeric keys, divide the key by the number of available addresses, n, and take the remainder.\\
+     		  \alert{ Address = Key Mode n}
+     		  \item For alphanumeric keys, divide the sum of ASCII codes in key by the number of available addresses, n, and take the remainder.     		  
+     		\end{itemize}
+     	\end{block}
+     \end{frame}
+ 
+      \begin{frame}
+     	\frametitle{Hash Tables}
+     	\alert{hash code: } an int between -2$^(32)$ and 2$^(32)$-1
+     	\begin{figure}
+     		\centering
+     		\includegraphics[width=1\linewidth]{"Screenshot 2020-11-29 at 10.40.20 PM"}
+     		\label{fig:screenshot-2020-11-29-at-10}
+     	\end{figure}
+     	
+     \end{frame}
+
+     	\begin{frame}
+     	\frametitle{Hash Tables}
+     	\begin{block}{Collisions}
+     		If there are two or more keys with the same hash value, we say a collision occurred.
+     	\end{block}
+       
+     \end{frame}
+       \begin{frame}
+     	\frametitle{Hash Tables}	
+     	\begin{figure}
+     		\centering
+     		\includegraphics[width=0.45\linewidth]{"Screenshot 2020-11-29 at 8.41.55 AM"}
+     		\caption{Collision in Hash Table}
+     		\label{fig:screenshot-2020-11-29-at-8}
+     	\end{figure}   	
+     \end{frame}
+ 
+      \begin{frame}
+     	\frametitle{Hash Tables}	
+     	\begin{block}{Methods to deal with collision: }
+     		\begin{enumerate}
+     			\item Separate Chaining or Closed-addressing Hashing method
+     		    \item Linear Probing or Open-addressing Hashing method
+     		\end{enumerate}
+     	\end{block}
+     \end{frame}
+ 
+      \begin{frame}
+     	\frametitle{Hash Tables}	
+     	\begin{block}{Methods to deal with collision:  Separate Chaining}
+     		A method by which linked lists of values are built in association with each location within the hash table when the collision occurs.
+     	\end{block}
+         \begin{itemize}
+         	\item Hash: map key to integer i between 0 and M - 1. 
+         	\item Insert: put at front of ith chain (if not already there). 
+         	\item Search: need to search only ith chain.
+         \end{itemize}
+        
+        
+     \end{frame}
+    
+          \begin{frame}
+    	\frametitle{Hash Tables: Seperate Chaining}	
+    	\begin{figure}
+    		\centering
+    		\includegraphics[width=1\linewidth]{"Screenshot 2020-11-29 at 9.06.41 AM"}
+    		\label{fig:screenshot-2020-11-29-at-9}
+    	\end{figure}
+    	
+    \end{frame}
+ 
+       \begin{frame}
+     	\frametitle{Hash Tables: Seperate Chaining: Java implementation}	
+         	\begin{figure}
+         		\centering
+         		\includegraphics[width=1\linewidth]{"Screenshot 2020-11-29 at 11.28.34 PM"}
+         		\label{fig:screenshot-2020-11-29-at-11}
+         	\end{figure}
+         	\begin{figure}
+         		\centering
+         		\includegraphics[width=1\linewidth]{"Screenshot 2020-11-29 at 11.28.43 PM"}
+         		\label{fig:screenshot-2020-11-29-at-11}
+         	\end{figure}    	
+     \end{frame}
+ 
+         \begin{frame}
+     	\frametitle{Hash Tables: Seperate Chaining: Resizing and deletion}	
+         	\begin{figure}
+         		\centering
+         		\includegraphics[width=0.75\linewidth]{"Screenshot 2020-11-29 at 11.29.12 PM"}
+         		\label{fig:screenshot-2020-11-29-at-11}
+         	\end{figure}
+         	\begin{figure}
+         		\centering
+         		\includegraphics[width=0.75\linewidth]{"Screenshot 2020-11-29 at 11.29.44 PM"}
+         		\label{fig:screenshot-2020-11-29-at-11}
+         	\end{figure}  	
+     \end{frame}
+ 
+     \begin{frame}
+    	\frametitle{Hash Tables: Seperate Chaining: Resizing and deletion}	
+		    \alert{ Double size of array M when N / M $>=$ 8. Halve size of array M when N / M $=<$ 2. Need to rehash all keys when resizing.}	
+    \end{frame}
+ 
+     \begin{frame}
+    	\frametitle{Hash Tables: Linear Probing}	
+    	\begin{block}{Methods to deal with collision:  Linear Probing}
+    	A strategy for resolving collision or keys that maps to the same index in a hash table such that	If the index spot contains the value, use the next index spot and continue until the free spot is available. Also, when the end of the array is reached, go back to the front of the array.	
+    	\end{block}
+    
+        \begin{itemize}
+        	\item \textcolor{blue}{Hash:}Map key to integer i between 0 and M-1.
+        	\item \textcolor{blue}{Insert:} Put at table index i if free; if not try i+1, i+2, etc.
+         	\item \textcolor{blue}{Search:} Search table index i; if occupied but no match, try i+1, i+2, etc.	 
+        \end{itemize}
+	
+    \end{frame}
+   \begin{frame}
+   	\frametitle{Hash Tables:Linear Probing}	
+   
+   	\begin{figure}
+   		\centering
+   		\includegraphics[width=1.05\linewidth]{"Screenshot 2020-11-29 at 9.17.44 AM"}
+   		\label{fig:screenshot-2020-11-29-at-9}
+   	\end{figure}  	
+   \end{frame}
+
+   \begin{frame}
+   	\frametitle{Hash Tables:Performance}	
+    \alert{Both Linear Probing and Seperate Chaining take O(n) time complexity though it takes 0(1) in best case time complexity.}
+   \end{frame}
+\end{document}

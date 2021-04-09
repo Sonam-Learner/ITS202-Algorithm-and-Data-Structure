@@ -1,0 +1,181 @@
+\documentclass[11pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usetheme{Copenhagen}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{outlines}
+\setbeamertemplate{caption}[numbered]
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+
+% Code
+\usepackage{courier} %% Sets font for listing as Courier.
+\usepackage{listings, xcolor}
+\lstset{
+	tabsize = 4, %% set tab space width
+	showstringspaces = false, %% prevent space marking in strings, string is defined as the text that is generally printed directly to the console
+	numbers = left, %% display line numbers on the left
+	commentstyle = \color{red}, %% set comment color
+	keywordstyle = \color{blue}, %% set keyword color
+	stringstyle = \color{red}, %% set string color
+	rulecolor = \color{black}, %% set frame color to avoid being affected by text color
+	basicstyle = \small \ttfamily , %% set listing font and size
+	breaklines = true, %% enable line breaking
+	numberstyle = \tiny,
+}
+
+%Page Number
+\addtobeamertemplate{navigation symbols}{}{%
+	\usebeamerfont{footline}%
+	\usebeamercolor[fg]{footline}%
+	\hspace{1em}%
+	\insertframenumber/\inserttotalframenumber
+}
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+	\insertshorttitle\hfill%
+	\insertframenumber\,/\,\inserttotalframenumber}
+\begin{document}
+	\author{Ms. Sonam Wangmo}
+	\title{ITS202: Algorithms and Data Structure}
+	\subtitle{Graphs}
+	\institute{
+		\textcolor{blue}{Gyalpozhing College of Information Technology \\ Royal University of Bhutan} \\
+		\vspace{0.5cm}
+	}
+	%\date{}
+	\setbeamercovered{transparent}
+	%\setbeamertemplate{navigation symbols}{}
+	\begin{frame}[plain]
+		\maketitle
+	\end{frame}
+
+  \begin{frame}
+ 	\frametitle	{Graphs: Digraph} 
+ 	\begin{block}{Directed Graph}
+ 	    Digraph. Set of vertices connected pairwise by directed edges.
+ 	\end{block} 
+    \begin{figure}
+    	\centering
+    	\includegraphics[width=0.9\linewidth]{"Screenshot 2020-12-03 at 6.31.34 AM"}
+    	\label{fig:screenshot-2020-12-03-at-6}
+    \end{figure}   
+ \end{frame}
+
+  \begin{frame}
+	\frametitle	{Graphs: Digraph Application: Road Network} 
+    \begin{figure}
+    	\centering
+    	\includegraphics[width=0.8\linewidth]{"Screenshot 2020-12-03 at 6.34.47 AM"}
+    	\label{fig:screenshot-2020-12-03-at-6}
+    \end{figure}   
+\end{frame}
+
+  \begin{frame}
+	\frametitle	{Graphs: Some digraph problems} 
+    \begin{figure}
+    	\centering
+    	\includegraphics[width=1\linewidth]{"Screenshot 2020-12-03 at 6.36.53 AM"}
+    	\label{fig:screenshot-2020-12-03-at-6}
+    \end{figure}    
+\end{frame}
+
+  \begin{frame}
+	\frametitle	{Digraph API} 
+    \begin{figure}
+    	\centering
+    	\includegraphics[width=1\linewidth]{"Screenshot 2020-12-03 at 6.39.16 AM"}
+    	\label{fig:screenshot-2020-12-03-at-6}
+    \end{figure}  
+\end{frame}
+
+ \begin{frame}
+	\frametitle	{Digraph API} 
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{"Screenshot 2020-12-03 at 6.44.59 AM"}
+		\label{fig:screenshot-2020-12-03-at-6}
+	\end{figure}	
+\end{frame}
+
+ \begin{frame}
+	\frametitle	{Digraph representation: adjacency lists} 
+    	\begin{figure}
+    		\centering
+    		\includegraphics[width=0.9\linewidth]{"Screenshot 2020-12-03 at 6.47.26 AM"}
+    		\label{fig:screenshot-2020-12-03-at-6}
+    	\end{figure} 	
+\end{frame}
+
+ \begin{frame}
+	\frametitle	{Digraph Search} 
+   	\alert{Reachability}
+   	\begin{figure}
+   		\centering
+   		\includegraphics[width=0.8\linewidth]{"Screenshot 2020-12-03 at 6.50.31 AM"}
+   		\label{fig:screenshot-2020-12-03-at-6}
+   	\end{figure}	
+\end{frame}
+
+ \begin{frame}
+	\frametitle	{Digraph Search: Depth-first search} 
+   	\begin{figure}
+   		\centering
+   		\includegraphics[width=1\linewidth]{"Screenshot 2020-12-03 at 6.53.19 AM"}
+   		\label{fig:screenshot-2020-12-03-at-6}
+   	\end{figure}  	
+\end{frame}
+
+ \begin{frame}
+	\frametitle	{Digraph Search: Depth-first search} 
+    	\begin{figure}
+    		\centering
+    		\includegraphics[width=0.9\linewidth]{"Screenshot 2020-12-03 at 7.11.04 AM"}
+    		\label{fig:screenshot-2020-12-03-at-7}
+    	\end{figure}
+    	
+\end{frame}
+
+ \begin{frame}
+	\frametitle	{Digraph Search: Depth-first search} 
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{"Screenshot 2020-12-03 at 7.11.20 AM"}
+		\label{fig:screenshot-2020-12-03-at-7}
+	\end{figure}	
+\end{frame}
+
+ \begin{frame}
+	\frametitle	{Digraph Search: Breadth-first search} 
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{"Screenshot 2020-12-03 at 7.16.26 AM"}
+		\label{fig:screenshot-2020-12-03-at-7}
+	\end{figure}	
+\end{frame}
+
+ \begin{frame}
+	\frametitle	{Digraph Search: Breadth-first search} 
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{"Screenshot 2020-12-03 at 7.16.45 AM"}
+		\label{fig:screenshot-2020-12-03-at-7}
+	\end{figure}	
+\end{frame}
+
+ \begin{frame}
+	\frametitle	{Digraph Search: Breadth-first search} 
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{"Screenshot 2020-12-03 at 7.16.59 AM"}
+		\label{fig:screenshot-2020-12-03-at-7}
+	\end{figure}	
+\end{frame}
+
+\end{document}

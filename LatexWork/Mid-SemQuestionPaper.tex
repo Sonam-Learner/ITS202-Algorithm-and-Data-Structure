@@ -1,0 +1,222 @@
+\documentclass[12pt ,a4paper]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\newcommand\textbox[1]{%
+	\parbox{.333\textwidth}{#1}%
+}
+
+% Customised items
+\usepackage[shortlabels]{enumitem}
+
+% Times New Roman
+\usepackage[T1]{fontenc}
+\usepackage{newtxmath,newtxtext}
+
+% Code
+\usepackage{courier} %% Sets font for listing as Courier.
+\usepackage{listings, xcolor}
+\lstset{
+	tabsize = 4, %% set tab space width
+	showstringspaces = false, %% prevent space marking in strings, string is defined as the text that is generally printed directly to the console
+	numbers = left, %% display line numbers on the left
+	commentstyle = \color{red}, %% set comment color
+	keywordstyle = \color{blue}, %% set keyword color
+	stringstyle = \color{red}, %% set string color
+	rulecolor = \color{black}, %% set frame color to avoid being affected by text color
+	basicstyle = \small \ttfamily , %% set listing font and size
+	breaklines = true, %% enable line breaking
+	numberstyle = \tiny,
+}
+
+
+% Page Setup
+\usepackage[a4paper,
+bindingoffset=0.2in,%
+left=0.5in,
+right=0.5in,
+top=1in,
+bottom=1in,%
+footskip=.25in]{geometry}
+
+\author{Yonten Jamtsho}
+\begin{document}
+	% Title
+	\begin{center}
+		\textbf{ROYAL UNIVERSITY OF BHUATAN} \\
+		\textbf{GYALPOZHING COLLEGE OF INFORMATION TECHNOLOGY} \\
+		\textbf{GYALPOZHING : BHUTAN}
+	\end{center}
+	
+	\vspace{0.2cm}
+	
+	\begin{center}
+		%\textbf{SEMESTER END EXAMINATION (AUTUMN 2020)}
+		\textbf{MID SEMESTER EXAMINATION (AUTUMN 2020)}
+	\end{center}
+	
+	\vspace{0.1cm}
+	
+	\begin{tabbing}
+		\textbf{Class} \=  \hspace{2cm} :  \hspace{0.3cm} \textbf{Bachelor of Science in Information Technology (Year II, Semester I)}     \\ \\
+		
+		\textbf{Module Title} \hspace{0.65cm} : \hspace{0.3cm} \textbf{Algorithms and Data Structures}       \\ \\
+		
+		\textbf{Module Code} \hspace{0.55cm} :     \hspace{0.3cm} \textbf{ITS202}     \\ \\
+		
+		\textbf{Serial No.} \hspace{1.13cm} :       \hspace{0.3cm} \textbf{BSc(IT)/2020/Sem III/M/ITS202}          \\ \\
+		
+		\textbf{Max. Marks} \hspace{0.75cm} :     \hspace{0.3cm} \textbf{50}             \\ \\
+		
+		\textbf{Max. Time} \hspace{1.04cm} :        \hspace{0.3cm} \textbf{1 Hour, 30 Minutes}             \\ \\
+	\end{tabbing}
+	
+	\textbf{General Instructions:}
+	\begin{enumerate}
+		\itemsep0em 
+		\item Question paper has written component.
+		\item In no circumstances may you remove Answer Books, used or unused, from the Examination Room.
+		\item If the answer book is torn or folded or without Exam Cell’s seal, report the matter to the Invigilator and get a new one.
+		\item Enter the required details such as Reg.  Number, Module and other information as prescribed.
+		\item Do not write your name on any part of the Answer Book.
+		\item Number your answer according to the number assigned in the Question Paper.
+		\item Do not skip any pages when writing answers.  Any rough sketches/calculations must be shown on the same page.
+		\item Do not fold or tear off any pages from the Answer Book. Any answer crossed by you will not be evaluated.
+		\item You may request for the supplementary Answer sheets only after the main answer Book is completely used.
+		\item A candidate who is found to have unauthorised materials in his /her possession, copying, talking or exchanging any material with others will be dealt with as per the Wheel of Academic Law.
+		\item No paper other than Admit Card will be allowed in the Examination Hall/Room unless otherwise specified in the Question Paper.
+	\end{enumerate}
+	\pagebreak
+	
+	% Part A title
+	\begin{center}
+		\noindent \textbf{PART - I} \textbf{ [10 Marks]}\\
+		\noindent \textit{Answer all the questions} 
+	\end{center}
+	
+	% Keep space between PAT A and MCQ
+	\vspace{0.5cm}
+	
+	% MQC Title
+	\noindent \textbf{Multiple Choice Questions} \hfill \textbf{[5 x 1 = 10]}
+	
+	% Begin your question with customized numbered list
+	\begin{enumerate}[start=1,label={\bfseries Q\arabic*)}]
+		% Reduce the space between items
+		\itemsep0.2em
+		
+		\item The upper bound of mergesort algorithm is
+		\item[] 
+		\begin{oneparchoices}
+			\choice $\theta$(nlogn)  % \hspace is used to keep space between choice
+			\choice $\theta$(n) 
+			\choice $\omega$(nlogn) 
+			\choice O(nlogn) 
+		\end{oneparchoices}
+		
+		\item What is the return type of enqueue in Queue Data Structure?
+		\item[] 
+		\begin{oneparchoices}
+			\choice void  % \hspace is used to keep space between choice
+			\choice int, the enqueued element 
+			\choice Zero 
+			\choice One
+		\end{oneparchoices}
+	
+		\item Time complexity(Upper bound) to insert an element in an array.
+		\item[] 
+		\begin{oneparchoices}
+			\choice $\theta$(n)  % \hspace is used to keep space between choice
+	    	\choice $\theta$(log n) 
+	    	\choice $\omega$(n) 
+	    	\choice O(n) 
+		\end{oneparchoices}
+	
+		\item The running time of an algorithm in O ($n^2$) is said to be
+		\item[] 
+		\begin{oneparchoices}
+			\choice  Linear% \hspace is used to keep space between choice
+			\choice Quadratic
+			\choice Exponential
+			\choice Logarithmic.
+	 	\end{oneparchoices}
+ 	 \item How many times must you tear a 1,024- page phonebook in half in order to whittle it down to a single page?
+ 	 	\item[] 
+ 	 \begin{oneparchoices}
+ 	 	\choice 8% \hspace is used to keep space between choice
+ 	 	\choice 10
+ 	 	\choice 32
+ 	 	\choice 512
+ 	 \end{oneparchoices}
+    \end{enumerate}
+	
+	\noindent \textbf{Fill in the blanks} \hfill\textbf{ [5 x 1 = 5]}
+	
+	% Continue the items from 2
+	\begin{enumerate}[start=5,label={\bfseries Q\arabic*)}]
+		\item A Node class has  .................. and ................ data members in Linkedlist.
+		\item ......................... is the time complexity, when deleting a node from the head of LinkedList. 
+		\item ........... sorts strings which are not of same length.
+		\item ............... is the process of visiting every node in a singly LinkedList atleast once.
+	\end{enumerate}
+	
+	\vspace{0.1mm}
+	
+	% Part B title
+	\begin{center}
+		\textbf{PART - II} \textbf{[15 Marks]}\\
+		\noindent \textit{Answer all the questions} 
+	\end{center}
+
+	\begin{enumerate}[start=1,label={\bfseries Q\arabic*)}]
+		\item What does it mean if some algorithm is in $\theta$ (n)? Give example or scenerio of such time complexity. \hfill \textbf{[2]}
+		\item Can we delete a node from the tail of a linkedList? Why or Why not? \hfill \textbf{[2]}
+		\item What are the drawbacks of Arrays? \hfill \textbf{[2]}
+	    \item Explain the principle used in Queue Data Structure? \hfill \textbf{[2]}
+	    \item What are the two important conventions of Symbol Table data structure? \hfill \textbf{[2]}
+	    \item Write down the Psuedocode of Binary Search Algorithm? \hfill \textbf{[2]}
+	    \item Consider the remarks below, each of which sounds like an advantage but is not without an underlying disadvantage too. Complete each of the remarks, making clear the price paid (i.e., tradeoff) for the advantage. \hfill \textbf{[3]}
+	    \begin{enumerate}[start=1,label={\bfseries \roman*)}]
+	    	\item Merge sort tends to be faster than bubble sort. Having said that ...
+	    	\item A linked list can grow and shrink to fit as many elements as needed. Having said that ..
+	    	\item Binary search tends to be faster than linear search. Having said that ..
+	    \end{enumerate}
+	   
+	\end{enumerate}
+	\pagebreak
+	% Part C title
+	\begin{center}
+		\textbf{PART - III} \textbf{[25 Marks]}\\
+		\noindent \textit{Answer all the questions}  
+	\end{center}
+	
+	\begin{enumerate}[start=1,label={\bfseries Q\arabic*)}]
+		\item Fill the table with the appropriate algorithms: \hfill \textbf{ [5]}
+		
+		\begin{table}[h]
+			\centering
+			\begin{tabular}{|l|l|l|l}
+				\cline{1-3}
+				\textbf{Algorithms} & \textbf{$\omega$} & \textbf{O}  &  \\ \cline{1-3}
+				  &  $n^2$ &    $n^2$  &  \\ \cline{1-3}
+				  &  nlogn &  nlogn   &  \\ \cline{1-3}
+				  &  n &   $n^2$   &  \\ \cline{1-3}
+				  &   1 & log n    &  \\ \cline{1-3}
+				  &  1 &  n   &  \\ \cline{1-3}
+			\end{tabular}
+	\end{table}
+	\item Find the number of exchanges/swaps and the number of comparisons done while sorting the characters in the String "EXAMQUESTION" using insertion sort.  \hfill\textbf{[5]} 
+	\item List down the Abstract Data Type of Stack and Queue data structure with its role and return types \hfill\textbf{[5]} 
+	\item Perform MergeSort on the given array. Show the working in the form of recursion including the sort and merge function.\hfill\textbf{[10]} 
+	\\{[10,5,7,3,4,5,9,8,4,2,7,2]}
+	\\
+	\\
+	\\
+	\\
+	$------------ ------BEST WISHES----------------------------$
+	\end{enumerate}
+	
+\end{document}

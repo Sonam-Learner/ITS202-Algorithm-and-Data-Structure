@@ -1,0 +1,8 @@
+\frametitle{BST Ordered implementation: Rank}
+    	\begin{figure}
+    		\centering
+    		\includegraphics[width=1.05\linewidth]{"Screenshot 2020-11-04 at 10.56.40 AM"}
+    		\caption{rank method}
+    		\label{fig:screenshot-2020-11-04-at-10}
+    	\end{figure}
+    	
